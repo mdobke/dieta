@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano de Dieta Semanal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+            line-height: 1.6;
+        }
+        .container {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        h1, h2, h3 {
+            color: #007bff;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .nav-tabs .nav-link {
+            color: #007bff;
+            border: none;
+            border-bottom: 3px solid transparent;
+            font-weight: 500;
+            padding: 15px 20px;
+            transition: all 0.3s ease;
+        }
+        .nav-tabs .nav-link.active {
+            color: #0056b3;
+            border-bottom: 3px solid #007bff;
+            background-color: #e9f5ff;
+        }
+        .nav-tabs .nav-link:hover {
+            border-bottom: 3px solid #0056b3;
+        }
+        
+        /* Melhorias de responsividade */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            .nav-tabs .nav-link {
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            h2 {
+                font-size: 1.3rem;
+            }
+            .accordion-button {
+                padding: 10px 15px;
+                font-size: 0.95rem;
+            }
+            .meal-time {
+                font-size: 0.9rem;
+            }
+            ul li {
+                font-size: 0.9rem;
+            }
+        }
+        
+        .accordion-button {
+            background-color: #f0f8ff;
+            color: #007bff;
+            font-weight: 600;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .accordion-button:not(.collapsed) {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+        .accordion-body {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            padding: 20px;
+        }
+        .meal-time {
+            font-weight: 700;
+            color: #28a745;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .meal-time i {
+            margin-right: 8px;
+            color: #28a745;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        ul li {
+            margin-bottom: 5px;
+            display: flex;
+            align-items: flex-start;
+        }
+        ul li i {
+            margin-right: 8px;
+            color: #6c757d;
+            font-size: 0.9em;
+            position: relative;
+            top: 3px;
+        }
+        
+        @media (max-width: 576px) {
+            .meal-time {
+                flex-wrap: wrap;
+            }
+            ul li {
+                flex-wrap: wrap;
+                padding-left: 5px;
+            }
+            .accordion-body {
+                padding: 15px 10px;
+            }
+        }
+        .recipe-section {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+        .recipe-card {
+            background-color: #f0f8ff;
+            border: 1px solid #d0e9ff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        .recipe-card h4 {
+            color: #007bff;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .recipe-card h4 i {
+            margin-right: 10px;
+            color: #007bff;
+        }
+        .recipe-card strong {
+            color: #0056b3;
+        }
+        .orientations-section {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+        .orientations-section ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        .orientations-section ul li {
+            margin-bottom: 8px;
+        }
+        .orientations-section h3 {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">Meu Plano de Dieta Semanal <i class="fas fa-apple-alt"></i></h1>
+
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="week1-tab" data-bs-toggle="tab" data-bs-target="#week1" type="button" role="tab" aria-controls="week1" aria-selected="true">Semana 1 <i class="fas fa-calendar-alt d-none d-sm-inline"></i></button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="week2-tab" data-bs-toggle="tab" data-bs-target="#week2" type="button" role="tab" aria-controls="week2" aria-selected="false">Semana 2 <i class="fas fa-calendar-check d-none d-sm-inline"></i></button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="myTabContent">
+            <!-- Semana 1 Content -->
+            <div class="tab-pane fade show active" id="week1" role="tabpanel" aria-labelledby="week1-tab">
+                <h2 class="mt-4">Dieta da Semana 1</h2>
+
+                <div class="accordion mt-4" id="accordionOrientationsWeek1">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOrientationsW1">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOrientationsW1" aria-expanded="false" aria-controls="collapseOrientationsW1">
+                                <i class="fas fa-info-circle me-2"></i> Orientações Iniciais - Semana 1
+                            </button>
+                        </h2>
+                        <div id="collapseOrientationsW1" class="accordion-collapse collapse" aria-labelledby="headingOrientationsW1" data-bs-parent="#accordionOrientationsWeek1">
+                            <div class="accordion-body">
+                                <ul>
+                                    <li>Restrições: Glúten, Lactose, Cafeína, Açúcar, Carne vermelha, Soja, Álcool.</li>
+                                    <li>Chás ricos em antioxidantes e com efeito diurético: Cavalinha, Hibisco, Chá Branco.</li>
+                                    <li>Temperos Permitidos: Pimenta de cheiro, orégano, manjericão, sal rosa, cebola, alho, pimenta do reino, cebolinha, salsinha, alho poro, louro, gengibre, curry e alecrim, cúrcuma. Não ingerir nenhum tipo de tempero ultraprocessado.</li>
+                                    <li>Não ingerir chás estimulantes como chá verde, chá mate ou chá preto.</li>
+                                    <li>Procure fazer as refeições em locais calmos.</li>
+                                    <li>Mastigue bem os alimentos!</li>
+                                    <li>Beba água! Calcule 35ml X seu peso.</li>
+                                    <li>Faça um prato colorido!</li>
+                                    <li>Ingerir alimentos assados, grelhados e cozidos.</li>
+                                    <li>Azeite extra virgem: acidez &lt; 0,5%, armazenar em temp ambiente e fora da luz, ideal 3 meses ou menos de fabricação. Não submeter à cocção.</li>
+                                    <li>Para cozinhar: óleo de coco, banha de porco ou azeite de oliva.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion mt-4" id="accordionWeek1">
+                    <!-- Segunda-feira -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingW1Mon">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseW1Mon" aria-expanded="false" aria-controls="collapseW1Mon">
+                                Segunda-feira <i class="fas fa-sun ms-2"></i>
+                            </button>
+                        </h2>
+                        <div id="collapseW1Mon" class="accordion-collapse collapse" aria-labelledby="headingW1Mon" data-bs-parent="#accordionWeek1">
+                            <div class="accordion-body">
+                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ (8:30h)</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Suco Detox (300ml) (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Creatina (1medida)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Linhaça (1 colher sobremesa)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Tapioca 4 colheres de sopa</li>
+                                    <li><i class="fas fa-dot-circle"></i> Omelete com espinafre (2 ovos)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Café descafeinado ou Chás claros ou suco natural ou leite vegetal 0 lactose: 200ml</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-cookie-bite"></i> COLAÇÃO (10:30h)</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> 1 banana</li>
+                                    <li><i class="fas fa-dot-circle"></i> 2 colher de pasta de castanha</li>
+                                    <li><i class="fas fa-dot-circle"></i> Whey Isolado (1 medida)</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-utensils"></i> ALMOÇO (12:00h)</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Salada Crua - à vontade</li>
+                                    <li><i class="fas fa-dot-circle"></i> Frango ou peixe - 120g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Arroz Integral ou macarrão sem glúten - 90g</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-apple-alt"></i> LANCHE (16:00h)</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> 1 unidade de iorgurte 0 lactose - 200g</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 colher de sopa de chia</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-moon"></i> JANTA (22:30)</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Sopa de abóbora (400ml)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Frango 100g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Gengibre (opcional)</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-bed"></i> CEIA (22:00h)</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Leite vegetal com canela 200mL</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Terça-feira -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingW1Tue">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseW1Tue" aria-expanded="false" aria-controls="collapseW1Tue">
+                                Terça-feira <i class="fas fa-cloud-sun ms-2"></i>
+                            </button>
+                        </h2>
+                        <div id="collapseW1Tue" class="accordion-collapse collapse" aria-labelledby="headingW1Tue" data-bs-parent="#accordionWeek1">
+                            <div class="accordion-body">
+                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Suco Detox (300ml) (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Creatina (1medida)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Linhaça (1 colher sobremesa)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Panqueca de banana e aveia (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Café descafeinado Ou Chá Claros ou suco natural ou leite vegetal 0 lactose:200ml</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-cookie-bite"></i> COLAÇÃO</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> 1 fruta</li>
+                                    <li><i class="fas fa-dot-circle"></i> 4 castanhas</li>
+                                    <li><i class="fas fa-dot-circle"></i> Whey Isolado (1medida)</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-utensils"></i> ALMOÇO</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Salada Crua - à vontade</li>
+                                    <li><i class="fas fa-dot-circle"></i> Frango ou Peixe - 110g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Purê de batata-doce - 90g</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-apple-alt"></i> LANCHE</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Banana + Pasta amendoim ou pasta de castanha (1 colher)</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-moon"></i> JANTA</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Hambúrguer Caseiro de frango 120g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Legumes no vapor - 100g</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-bed"></i> CEIA</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Queijo tipo minas 0 Lactose - 1 fatia grande</li>
+                                    <li><i class="fas fa-dot-circle"></i> Chá de hortela ou camomila - 200ml</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Quarta-feira -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingW1Wed">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseW1Wed" aria-expanded="false" aria-controls="collapseW1Wed">
+                                Quarta-feira <i class="fas fa-cloud ms-2"></i>
+                            </button>
+                        </h2>
+                        <div id="collapseW1Wed" class="accordion-collapse collapse" aria-labelledby="headingW1Wed" data-bs-parent="#accordionWeek1">
+                            <div class="accordion-body">
+                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Suco Detox (300ml) (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Creatina (1 medida)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Linhaça (1 colher sobremesa)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Cuscuz 100g</li>
+                                    <li><i class="fas fa-dot-circle"></i> 2 ovos mexidos</li>
+                                    <li><i class="fas fa-dot-circle"></i> Café descafeinado Chá Claros ou suco natural ou leite vegetal ou 0 lactose:200ml</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-cookie-bite"></i> COLAÇÃO</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> 1/4 de Mamão</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 colher de linhaça</li>
+                                    <li><i class="fas fa-dot-circle"></i> Whey Isolado (1 medida)</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-utensils"></i> ALMOÇO</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Arroz integral 2 colheres de sopa</li>
+                                    <li><i class="fas fa-dot-circle"></i> Feijão - 2 colheres sopa</li>
+                                    <li><i class="fas fa-dot-circle"></i> Salada Crua - à vontade</li>
+                                    <li><i class="fas fa-dot-circle"></i> Frango ou peixe - 120g</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-apple-alt"></i> LANCHE</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> 1 logurte 0 lactose com canela - 250g</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-moon"></i> JANTA</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Peixe ou frango grelhado - 100g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Salada crua: a vontade</li>
+                                    <li><i class="fas fa-dot-circle"></i> Legumes cozidos: 3 colheres servir</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-bed"></i> CEIA</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Banana: 1 unidade com canela e xilitol (opcional)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Quinta-feira -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingW1Thu">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseW1Thu" aria-expanded="false" aria-controls="collapseW1Thu">
+                                Quinta-feira <i class="fas fa-wind ms-2"></i>
+                            </button>
+                        </h2>
+                        <div id="collapseW1Thu" class="accordion-collapse collapse" aria-labelledby="headingW1Thu" data-bs-parent="#accordionWeek1">
+                            <div class="accordion-body">
+                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Suco Detox (300ml) (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Creatina (1 medida)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Linhaça (1 colher sobremesa)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Pão sem glúten 2 fatias</li>
+                                    <li><i class="fas fa-dot-circle"></i> Pasta de abacate ou Requeijão 0 lactose ou Geleia sem açúcar ou pasta de amendoim 1 colher de sopa</li>
+                                    <li><i class="fas fa-dot-circle"></i> Café descafeinado Chá Claros ou suco natural ou leite vegetal 0 lactose:200ml</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-cookie-bite"></i> COLAÇÃO</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> 1 fruta</li>
+                                    <li><i class="fas fa-dot-circle"></i> 4 castanhas</li>
+                                    <li><i class="fas fa-dot-circle"></i> Whey Isolado (1 medida)</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-utensils"></i> ALMOÇO</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Peixe ao molho de leite de coco ou frango Grelhado - 120g</li>
+                                    <li><i class="fas fa-dot-circle"></i> 90g de arroz</li>
+                                    <li><i class="fas fa-dot-circle"></i> Salada crua: a vontade</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-apple-alt"></i> LANCHE</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Salada de frutas vermelhas - 200ml</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 colher de aveia</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-moon"></i> JANTA</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> File de frango - 100g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Salada crua - a vontade</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 fruta</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-bed"></i> CEIA</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Mix de Castanhas 3 unidades ou sementes: 3 unidades</li>
+                                    <li><i class="fas fa-dot-circle"></i> Chá de camomila - 200mL</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sexta-feira -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingW1Fri">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseW1Fri" aria-expanded="false" aria-controls="collapseW1Fri">
+                                Sexta-feira <i class="fas fa-umbrella-beach ms-2"></i>
+                            </button>
+                        </h2>
+                        <div id="collapseW1Fri" class="accordion-collapse collapse" aria-labelledby="headingW1Fri" data-bs-parent="#accordionWeek1">
+                            <div class="accordion-body">
+                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Suco Detox (300ml) (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Creatina (1 medida)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Linhaça (1 colher sobremesa)</li>
+                                    <li><i class="fas fa-dot-circle"></i> 2 Ovos mexidos</li>
+                                    <li><i class="fas fa-dot-circle"></i> Batata doce cozida ou assada - 80g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Café descafeinado Chá Claros ou suco natural ou leite vegetal 0 lactose:200ml</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-cookie-bite"></i> COLAÇÃO</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Salada de frutas vermelhas 300ml</li>
+                                    <li><i class="fas fa-dot-circle"></i> Whey Isolado (1 medida)</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-utensils"></i> ALMOÇO</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Arroz integral com brócolis - 3 colheres de servir</li>
+                                    <li><i class="fas fa-dot-circle"></i> Salada: mix de folhas verdes, beterraba crua e chuchu</li>
+                                    <li><i class="fas fa-dot-circle"></i> File de peixe(Salmão, Sardinha, Atum, Cavala ou Frango 120g</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-apple-alt"></i> LANCHE</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> 1 Unidade de Maçã assada</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 colher de sopa de canela</li>
+                                    <li><i class="fas fa-dot-circle"></i> 2 Colheres de chia</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-moon"></i> JANTA</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Escondidinho de batata doce com frango (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Salada crua: a vontade</li>
+                                    <li><i class="fas fa-dot-circle"></i> Suco de uva Integral: 200ml</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-bed"></i> CEIA</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Leite vegetal com cacau - 250mL</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sábado -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingW1Sat">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseW1Sat" aria-expanded="false" aria-controls="collapseW1Sat">
+                                Sábado <i class="fas fa-shopping-bag ms-2"></i>
+                            </button>
+                        </h2>
+                        <div id="collapseW1Sat" class="accordion-collapse collapse" aria-labelledby="headingW1Sat" data-bs-parent="#accordionWeek1">
+                            <div class="accordion-body">
+                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Suco Detox (300ml) (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Creatina (1 medida)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Linhaça (1 colher sobremesa)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Tapioca - 4 colheres sopa</li>
+                                    <li><i class="fas fa-dot-circle"></i> Queijo 0 lactose- 1 fatia média</li>
+                                    <li><i class="fas fa-dot-circle"></i> Água de coco: 200ml</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-cookie-bite"></i> COLAÇÃO</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Leite de coco em pó ou aveia: 1 clh de sobremesa</li>
+                                    <li><i class="fas fa-dot-circle"></i> Salada de frutas - 200ml</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-utensils"></i> ALMOÇO</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Espaguete de abobrinha com molho de tomate 100g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Ou Legumes cozidos 3 clh de servir</li>
+                                    <li><i class="fas fa-dot-circle"></i> Salada Crua - à vontade</li>
+                                    <li><i class="fas fa-dot-circle"></i> Omelete - 3 ovos/frango ou peixe -100g</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-apple-alt"></i> LANCHE</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Iogurte 0 lactose 250mL</li>
+                                    <li><i class="fas fa-dot-circle"></i> Coco ralado - 30g</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-moon"></i> JANTA</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Espetinho de frango: 1 unidade</li>
+                                    <li><i class="fas fa-dot-circle"></i> Vinagrete: 3 colheres de sopa</li>
+                                    <li><i class="fas fa-dot-circle"></i> Suco de frutas - 200ml</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-bed"></i> CEIA</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Vitamina: Leite vegetal, 150ml; 3 morangos</li>
+                                    <li><i class="fas fa-dot-circle"></i> Uva Passas - 1 colher de sobremesa</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Domingo -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingW1Sun">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseW1Sun" aria-expanded="false" aria-controls="collapseW1Sun">
+                                Domingo <i class="fas fa-church ms-2"></i>
+                            </button>
+                        </h2>
+                        <div id="collapseW1Sun" class="accordion-collapse collapse" aria-labelledby="headingW1Sun" data-bs-parent="#accordionWeek1">
+                            <div class="accordion-body">
+                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Suco Detox (300ml) (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Creatina (1 medida)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Linhaça (1 colher sobremesa)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Panqueca de aveia (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Pasta de castanha - 1 colher de sopa</li>
+                                    <li><i class="fas fa-dot-circle"></i> Café descafeinado Chá Claros ou suco natural ou leite vegetal 0 lactose:200ml</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-cookie-bite"></i> COLAÇÃO</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Bolo de chocolate com Banana: 1 pedaço (ver receita)</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-utensils"></i> ALMOÇO</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> File de frango recheado com queijo 0 lactose: 2 files</li>
+                                    <li><i class="fas fa-dot-circle"></i> Legumes a vapor: 1 colher de servir</li>
+                                    <li><i class="fas fa-dot-circle"></i> Salada crua - a vontade</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-apple-alt"></i> LANCHE</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Vitamina (leite 0 lactose + 1 maçã 1 banana) 250ml</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-moon"></i> JANTA</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Macarrão sem glúten - 100g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Frango desfiado ou atum 6 colheres sopa</li>
+                                    <li><i class="fas fa-dot-circle"></i> Suco de frutas - 200ml</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-bed"></i> CEIA</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> 1 Banana amassada com canela</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Semana 2 Content -->
+            <div class="tab-pane fade" id="week2" role="tabpanel" aria-labelledby="week2-tab">
+                <h2 class="mt-4">Dieta da Semana 2</h2>
+
+                <div class="accordion mt-4" id="accordionOrientationsWeek2">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOrientationsW2">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOrientationsW2" aria-expanded="false" aria-controls="collapseOrientationsW2">
+                                <i class="fas fa-info-circle me-2"></i> Orientações Iniciais - Semana 2
+                            </button>
+                        </h2>
+                        <div id="collapseOrientationsW2" class="accordion-collapse collapse" aria-labelledby="headingOrientationsW2" data-bs-parent="#accordionOrientationsWeek2">
+                            <div class="accordion-body">
+                                <ul>
+                                    <li>Restrições: Glúten, Lactose, Cafeína, Açúcar, Carne vermelha, Soja, Álcool.</li>
+                                    <li>Os suplementos e produtos naturais prescritos no dia da consulta devem ser usados conforme orientação da receita no seu aplicativo.</li>
+                                    <li>Não mantenha o foco na balança e sim no seu bem-estar.</li>
+                                    <li>Mais importante do que perder peso é terminar o processo de forma tranquila e se sentindo bem.</li>
+                                    <li>Beba água! Calcule 35ml X seu peso (EXEMPLO 80Kg X 35ml = 2800ml);</li>
+                                    <li>Seguir o passo a passo da raspagem de língua indicado no PDF de Recomendações</li>
+                                    <li>Procure fazer as refeições em locais calmos;</li>
+                                    <li>Mastigue bem os alimentos!</li>
+                                    <li>Faça um prato colorido! Quanto mais cores, maior a quantidade de vitaminas e minerais!</li>
+                                    <li>Ingerir alimentos assados, grelhados e cozidos.</li>
+                                    <li>Azeite extra virgem: de boa qualidade. Procure um com índice de acidez menor que 0,5%. Procure armazená-lo em temperatura ambiente e fora da luz. Procure se atentar a data de fabricação, o ideal são azeites com 3 meses ou menos após a data de fabricação.</li>
+                                    <li>Para cozinhar: prefira óleo de coco, banha de porco ou azeite de oliva.</li>
+                                    <li>Temperos Permitidos: Pimenta de cheiro, orégano, manjericão, sal rosa, cebola, alho, pimenta do reino, cebolinha, salsinha, alho poro, louro, gengibre, curry e alecrim, cúrcuma. Não ingerir nenhum tipo de tempero ultraprocessado</li>
+                                    <li>Repetições e substituições são permitidas desde que sejam da mesma semana, inclusive repetir o almoço na janta. Evitar repetir a mesma refeição todos os dias.</li>
+                                    <li>Tomar chás ricos em antioxidantes e com efeito diurético ao decorrer do dia</li>
+                                    <li>Modo de Preparo (Chás): separe 500ml de água, deixe ferver, desligue o fogo e adicione 1 colher sobremesa, da flor, folha ou semente seca. Tampe e deixe descansar por 3 a 5 minutos. Depois é só coar e consumir.</li>
+                                    <li>Chás recomendados: Chá de cavalinha, Hibisco, Dente de leão, Camomila, Melissa, Jasmim, Gengibre, Hortelã, Cidreira, Chá branco.</li>
+                                    <li>Não ingerir chás estimulantes como chá verde, chá mate ou chá preto.</li>
+                                    <li>Adoçantes naturais permitidos: Stevia, Eritritol, Xilitol</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion mt-4" id="accordionWeek2">
+                    <!-- Segunda-feira -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingW2Mon">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseW2Mon" aria-expanded="false" aria-controls="collapseW2Mon">
+                                Segunda-feira <i class="fas fa-sun ms-2"></i>
+                            </button>
+                        </h2>
+                        <div id="collapseW2Mon" class="accordion-collapse collapse" aria-labelledby="headingW2Mon" data-bs-parent="#accordionWeek2">
+                            <div class="accordion-body">
+                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ (08:30h)</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Suco ativador (200ml) (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> RECEITA: 1 Gelo de couve (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Água (100ml)</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 fruta ou 1 fatia media</li>
+                                    <li><i class="fas fa-dot-circle"></i> Creatina (1 medida)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Gengibre (1 colher de café rasa)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Omelete: 2 ovos (óleo de coco ou manteiga Ghee:5g)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Café descafeinado Chá Claros ou suco natural ou leite vegetal:250ml</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-cookie-bite"></i> COLAÇÃO (10:30h)</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Whey Isolado (1 medida)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Mix de frutas vermelhas - 250ml</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-utensils"></i> ALMOÇO (12:30h)</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Salada Crua - à vontade</li>
+                                    <li><i class="fas fa-dot-circle"></i> Arroz com cenoura - 100g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Frango ou peixe -100g</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-apple-alt"></i> LANCHE (16:00h)</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Iogurte zero lactose - 200ml</li>
+                                    <li><i class="fas fa-dot-circle"></i> Chia - 2 colheres</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-moon"></i> JANTA (19:00h)</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Pizza Low Carb (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Recheio: Tomate, manjericão - a vontade</li>
+                                    <li><i class="fas fa-dot-circle"></i> Atum ou frango - 3 colheres de sopa</li>
+                                    <li><i class="fas fa-dot-circle"></i> Suco de Uva Integral: 200ml</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-bed"></i> CEIA (22:00h)</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Leite vegetal 200mL</li>
+                                    <li><i class="fas fa-dot-circle"></i> Castanhas - 3 unidades</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Terça-feira -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingW2Tue">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseW2Tue" aria-expanded="false" aria-controls="collapseW2Tue">
+                                Terça-feira <i class="fas fa-cloud-sun ms-2"></i>
+                            </button>
+                        </h2>
+                        <div id="collapseW2Tue" class="accordion-collapse collapse" aria-labelledby="headingW2Tue" data-bs-parent="#accordionWeek2">
+                            <div class="accordion-body">
+                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Suco ativador (200ml) (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> RECEITA: 1 Gelo de couve (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Água (100ml)</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 fruta ou 1 fatia media</li>
+                                    <li><i class="fas fa-dot-circle"></i> Creatina (1 medida)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Gengibre (1 colher de café rasa)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Crepioca - 2 ovos e 80g de tapioca</li>
+                                    <li><i class="fas fa-dot-circle"></i> Café descafeinado Chá Claros (hortelã, camomila) ou suco natural ou leite vegetal:250ml</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-cookie-bite"></i> COLAÇÃO</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> 1 Fruta</li>
+                                    <li><i class="fas fa-dot-circle"></i> Whey isolado (1 medida)</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-utensils"></i> ALMOÇO</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Salada Crua - à vontade</li>
+                                    <li><i class="fas fa-dot-circle"></i> Omelete - 3 ovos ou frango ou peixe -100g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Legumes Cozidos: (brócolis, cenoura, beterraba, vagem, couve-flor, chuchu): 3 colheres de servir</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 fruta</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-apple-alt"></i> LANCHE</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> 1 Maçã assada com canela</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-moon"></i> JANTA</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Sopa: (Legumes abobrinha, cenoura, brócolis, abobora) com frango) - 350ml</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-bed"></i> CEIA</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> 1 fruta</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 colher de linhaça</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Quarta-feira -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingW2Wed">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseW2Wed" aria-expanded="false" aria-controls="collapseW2Wed">
+                                Quarta-feira <i class="fas fa-cloud ms-2"></i>
+                            </button>
+                        </h2>
+                        <div id="collapseW2Wed" class="accordion-collapse collapse" aria-labelledby="headingW2Wed" data-bs-parent="#accordionWeek2">
+                            <div class="accordion-body">
+                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Suco ativador (200ml) (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> RECEITA: 1 Gelo de couve (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Água (100ml)</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 fruta ou 1 fatia media</li>
+                                    <li><i class="fas fa-dot-circle"></i> Creatina (1 medida)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Gengibre (1 colher de café rasa)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Vitamina Receita: Leite Vegetal: 200ml, Banana: 2 un, Aveia: 1 colher sopa, Xilitol (opcional)</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-cookie-bite"></i> COLAÇÃO</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Morangos 100g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Whey isolado (1medida)</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-utensils"></i> ALMOÇO</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Arroz integral com brócolis - 100g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Salada Crua - à vontade</li>
+                                    <li><i class="fas fa-dot-circle"></i> Omelete - 3 ovos/frango ou peixe -100g</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-apple-alt"></i> LANCHE</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Salada de frutas 200 ml</li>
+                                    <li><i class="fas fa-dot-circle"></i> Leite de coco em pó 1 clh de sobremesa opcional</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-moon"></i> JANTA</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Tomate Recheado assado:2 unidades</li>
+                                    <li><i class="fas fa-dot-circle"></i> Recheio: 100g de atum ou sardinha ou frango desfiado</li>
+                                    <li><i class="fas fa-dot-circle"></i> Suco de fruta: 200ml</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-bed"></i> CEIA</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> 1 banana amassada</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 colher de pasta de amendoim</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Quinta-feira -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingW2Thu">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseW2Thu" aria-expanded="false" aria-controls="collapseW2Thu">
+                                Quinta-feira <i class="fas fa-wind ms-2"></i>
+                            </button>
+                        </h2>
+                        <div id="collapseW2Thu" class="accordion-collapse collapse" aria-labelledby="headingW2Thu" data-bs-parent="#accordionWeek2">
+                            <div class="accordion-body">
+                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Suco ativador (200ml) (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> RECEITA: 1 Gelo de couve (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Água (100ml)</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 fruta ou 1 fatia media</li>
+                                    <li><i class="fas fa-dot-circle"></i> Creatina (1 medida)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Gengibre (1 colher de café rasa)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Panqueca (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Recheio: Geleia sem açúcar 1 colher sopa</li>
+                                    <li><i class="fas fa-dot-circle"></i> Café descafeinado Chá Claros ou suco natural ou leite vegetal:300ml</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-cookie-bite"></i> COLAÇÃO</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Mix de frutas vermelhas 250mL</li>
+                                    <li><i class="fas fa-dot-circle"></i> Whey Isolado (1medida)</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-utensils"></i> ALMOÇO</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Batata inglesa ou mandioca cozida 80g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Com frango ou atum ou sardinha 100g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Salada crua: a vontade</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 fruta</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-apple-alt"></i> LANCHE</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Iogurte 0 lacotse - 200g</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 Fruta</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-moon"></i> JANTA</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Caldo de Abóbora com frango ou lentilha ou feijão: 300ml</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-bed"></i> CEIA</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Chá de Camomila, Hortelã, Erva doce, cidreira - 200ml</li>
+                                    <li><i class="fas fa-dot-circle"></i> Peta: 3 unidades</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sexta-feira -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingW2Fri">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseW2Fri" aria-expanded="false" aria-controls="collapseW2Fri">
+                                Sexta-feira <i class="fas fa-umbrella-beach ms-2"></i>
+                            </button>
+                        </h2>
+                        <div id="collapseW2Fri" class="accordion-collapse collapse" aria-labelledby="headingW2Fri" data-bs-parent="#accordionWeek2">
+                            <div class="accordion-body">
+                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Suco ativador (200ml) (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> RECEITA: 1 Gelo de couve (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Água (100ml)</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 fruta ou 1 fatia media</li>
+                                    <li><i class="fas fa-dot-circle"></i> Creatina (1 medida)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Gengibre (1 colher de café rasa)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Mingau Proteico: (ver receita) 300ml</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 banana prata ou maçã picada</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-cookie-bite"></i> COLAÇÃO</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Whey Isolado (1medida)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Frutas vermelhas picadas (200mL)</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-utensils"></i> ALMOÇO</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Salada crua com ervilha: a vontade</li>
+                                    <li><i class="fas fa-dot-circle"></i> Ovo 3: unidades, frango/peixe 100g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Pure de mandioca ou batata 5 colheres de sopa</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-apple-alt"></i> LANCHE</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Chips de Batata doce - 50g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Ou Barrinha de alfarroba ou Levitá</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-moon"></i> JANTA</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Macarrão de grão de bico, arroz, milho ou konjac 100g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Recheio: Molho de tomate com frango ou sardinha:100g (pronto)</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-bed"></i> CEIA</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Mamão papaia 1 metade ou 1 rodela de abacaxi</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sábado -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingW2Sat">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseW2Sat" aria-expanded="false" aria-controls="collapseW2Sat">
+                                Sábado <i class="fas fa-shopping-bag ms-2"></i>
+                            </button>
+                        </h2>
+                        <div id="collapseW2Sat" class="accordion-collapse collapse" aria-labelledby="headingW2Sat" data-bs-parent="#accordionWeek2">
+                            <div class="accordion-body">
+                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Suco ativador (200ml) (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> RECEITA: 1 Gelo de couve (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Água (100ml)</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 fruta ou 1 fatia media</li>
+                                    <li><i class="fas fa-dot-circle"></i> Creatina (1 medida)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Gengibre (1 colher de café rasa)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Pão Low Carb de frigideira (ver receita): 1 unidade</li>
+                                    <li><i class="fas fa-dot-circle"></i> Recheio: Atum ou pasta de amendoim, 1 colher sopa</li>
+                                    <li><i class="fas fa-dot-circle"></i> Água de coco: 200ml</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-cookie-bite"></i> COLAÇÃO</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Leite de coco em pó ou aveia: 1 clh de sobremesa</li>
+                                    <li><i class="fas fa-dot-circle"></i> Salada de frutas - 200ml</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-utensils"></i> ALMOÇO</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Espaguete de abobrinha com molho de tomate 100g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Ou Legumes cozidos 3 clh de servir</li>
+                                    <li><i class="fas fa-dot-circle"></i> Salada Crua - à vontade</li>
+                                    <li><i class="fas fa-dot-circle"></i> Omelete - 3 ovos/frango ou peixe -100g</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-apple-alt"></i> LANCHE</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Iogurte 0 lactose 250mL</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-moon"></i> JANTA</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Espetinho de frango: 1 unidade</li>
+                                    <li><i class="fas fa-dot-circle"></i> Vinagrete: 3 colheres de sopa</li>
+                                    <li><i class="fas fa-dot-circle"></i> Suco de frutas - 200ml</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-bed"></i> CEIA</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Vitamina: Leite vegetal, 150ml; 3 morangos</li>
+                                    <li><i class="fas fa-dot-circle"></i> Uva Passas - 1 colher de sobremesa</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Domingo -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingW2Sun">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseW2Sun" aria-expanded="false" aria-controls="collapseW2Sun">
+                                Domingo <i class="fas fa-church ms-2"></i>
+                            </button>
+                        </h2>
+                        <div id="collapseW2Sun" class="accordion-collapse collapse" aria-labelledby="headingW2Sun" data-bs-parent="#accordionWeek2">
+                            <div class="accordion-body">
+                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Suco ativador (200ml) (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> RECEITA: 1 Gelo de couve (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Água (100ml)</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 fruta ou 1 fatia media</li>
+                                    <li><i class="fas fa-dot-circle"></i> Creatina (1 medida)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Gengibre (1 colher de café rasa)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Bolo de banana (ver receita): 100g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Café descafeinado Chá Claros ou suco natural ou leite vegetal:200ml</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-cookie-bite"></i> COLAÇÃO</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Iogurte 200ml</li>
+                                    <li><i class="fas fa-dot-circle"></i> Whey Isolado (1 medida)</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-utensils"></i> ALMOÇO</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Escondidinho de Batata (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Salada crua: a vontade</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-apple-alt"></i> LANCHE</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Açaí (puro) - 200mL</li>
+                                    <li><i class="fas fa-dot-circle"></i> Bater com 1 banana e granola(10g)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Xilitol opcional</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-moon"></i> JANTA</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> Panqueca (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Recheio: frango:80g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Suco de frutas - 200ml</li>
+                                </ul>
+                                <div class="meal-time"><i class="fas fa-bed"></i> CEIA</div>
+                                <ul>
+                                    <li><i class="fas fa-dot-circle"></i> 1 fruta</li>
+                                    <li><i class="fas fa-dot-circle"></i> Queijo 0 lactose: 1 fatia</li>
+                                    <li><i class="fas fa-dot-circle"></i> Geleia: 1 colher de chá</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="recipe-section mt-5">
+            <h2 class="text-center mb-4"><i class="fas fa-book-open"></i> Receitas</h2>
+
+            <div class="mb-3">
+                <label for="recipeSelector" class="form-label">Selecione uma receita:</label>
+                <select class="form-select" id="recipeSelector">
+                    <option selected disabled>Escolha uma receita...</option>
+                    <option value="recipe-gelo-couve">GELO DE COUVE</option>
+                    <option value="recipe-caldo-feijao">CALDO DE FEIJÃO</option>
+                    <option value="recipe-caldo-abobora">CALDO DE ABÓBORA COM QUINOA E FRANGO</option>
+                    <option value="recipe-bolo-amendoim">BOLO DE AMENDOIM OU QUAISQUER CASTANHAS</option>
+                    <option value="recipe-sopa-legumes">SOPA DE LEGUMES COM FRANGO</option>
+                    <option value="recipe-bolo-chocolate-banana">BOLO DE CHOCOLATE COM BANANA</option>
+                    <option value="recipe-panqueca-amendoas">PANQUECA DE AMÊNDOAS</option>
+                    <option value="recipe-sopa-quinoa">SOPA DE QUINOA COM FRANGO</option>
+                    <option value="recipe-bolo-caneca-morango">BOLO DE CANECA DE MORANGO</option>
+                    <option value="recipe-chips-batata-doce">CHIPS DE BATATA DOCE</option>
+                    <option value="recipe-panqueca-banana-aveia">PANQUECA DE BANANA E AVEIA</option>
+                    <option value="recipe-biomassa-banana-verde">BIOMASSA DE BANANA VERDE</option>
+                    <option value="recipe-crepioca">CREPIOCA</option>
+                    <option value="recipe-manteiga-azeite">MANTEIGA DE AZEITE</option>
+                    <option value="recipe-sal-ervas">SAL DE ERVAS</option>
+                    <option value="recipe-pao-low-carb">PÃO LOW CARB DE FRIGIDEIRA</option>
+                    <option value="recipe-salpicao-funcional">SALPICÃO FUNCIONAL</option>
+                    <option value="recipe-iogurte-chia">IOGURTE DE CHIA</option>
+                    <option value="recipe-peixe-frango-empanado">PEIXE OU FRANGO EMPANADO</option>
+                    <option value="recipe-guacamole">GUACAMOLE</option>
+                    <option value="recipe-pizza-frigideira">PIZZA DE FRIGIDEIRA FIT</option>
+                    <option value="recipe-pao-queijo-frigideira">PÃO DE QUEIJO DE FRIGIDEIRA</option>
+                    <option value="recipe-suco-detox-laranja">SUCO DETOX SIMPLES DE LARANJA COM LIMÃO</option>
+                    <option value="recipe-suco-detox-maca">SUCO DETOX SIMPLES DE MAÇÃ COM COUVE</option>
+                    <option value="recipe-mingau-proteico">MINGAU PROTEICO</option>
+                    <option value="recipe-bolo-banana-simples">BOLO DE BANANA</option>
+                </select>
+            </div>
+
+            <div id="recipeDetailsContainer">
+                <!-- GELO DE COUVE -->
+                <div id="recipe-gelo-couve" class="recipe-card" style="display: none;">
+                    <h4><i class="fas fa-blender"></i> GELO DE COUVE</h4>
+                    <p><b>Ingredientes:</b> 4 ou 5 folhas de couve, 1 maço de hortelã, 1 litro de água.</p>
+                                <p><b>Modo de preparo:</b> Bata tudo no liquidificador, se preferir coe. Despeje na forminha de gelo e congele.</p>
+                </div>
+
+                <!-- CALDO DE FEIJÃO -->
+                <div id="recipe-caldo-feijao" class="recipe-card" style="display: none;">
+                    <h4><i class="fas fa-soup"></i> CALDO DE FEIJÃO</h4>
+                    <p><b>Ingredientes:</b> 200ml de feijão batido (usar o feijão que preferir), 1 cebola pequena, alho, 1 colher de sopa de semente de linhaça ou de chia e 50g de patinho moído.</p>
+                    <p><b>Modo de preparo:</b> bata todos os ingredientes no liquidificador e quando estiver bem homogêneo refogue com sal e pimenta a gosto. Se necessário, acrescente mais um pouco de água para chegar na consistência ideal. Para finalizar, use couve crua picada bem fininha e cheiro verde a gosto.</p>
+                </div>
+
+                <!-- CALDO DE ABÓBORA COM QUINOA E FRANGO -->
+                <div id="recipe-caldo-abobora" class="recipe-card" style="display: none;">
+                    <h4><i class="fas fa-soup"></i> CALDO DE ABÓBORA COM QUINOA E FRANGO</h4>
+                    <p><b>Ingredientes:</b> 300g de abóbora, 1/4 de xícara (chá) de alho-poró em rodelas, 1 pitada pimenta-do-reino, 2 colheres (sopa) azeite de oliva, sal a gosto, 1/4 de xícara (chá) de salsinha picada, 1 colher (chá) de gengibre fresco ralado e 1/2 xícara (chá) de quinoa cozida.</p>
+                    <p><b>Modo de preparo:</b> Cozinhe a quinoa por 8 minutos sem mexer e reserve. Cozinhe a abóbora no vapor. Enquanto isso prepare o tempero refogando o alho-poró junto com a pimenta-do-reino e o sal até dourar. Liquidifique a abóbora com o tempero refogado e adicione água até o ponto desejado.</p>
+                </div>
+
+                <!-- BOLO DE AMENDOIM OU QUAISQUER CASTANHAS -->
+                <div id="recipe-bolo-amendoim" class="recipe-card" style="display: none;">
+                    <h4><i class="fas fa-cake-candles"></i> BOLO DE AMENDOIM OU QUAISQUER CASTANHAS</h4>
+                    <p><b>Ingredientes:</b> 1 xícara de chá de amendoim moído ou castanhas de (caju, Pará ou baru), meia xícara de chá de xilitol, 3 ovos, 1 colher de sopa de fermento em pó e 2 colheres sopa de óleo de coco.</p>
+                    <p><b>Modo de preparo:</b> bata os ingredientes no liquidificador, depois adicione o fermento. Despeje em uma assadeira untada e enfarinhada com farinha de arroz ou forma de silicone. Leve para assar em forno médio por 30 minutos. Sirva quando estiver dourado.</p>
+                </div>
+
+                <!-- SOPA DE LEGUMES COM FRANGO -->
+                <div id="recipe-sopa-legumes" class="recipe-card" style="display: none;">
+                    <h4><i class="fas fa-soup"></i> SOPA DE LEGUMES COM FRANGO</h4>
+                    <p><b>Ingredientes:</b> 1 inhame grande picado em cubos, 1 cenoura picada em tiras, 1 xícara de brócolis em pequenos buquês, 1 folha de couve rasgada em pedaços, 100 gramas de carne em cubos, água quente, 2 colheres de sopa de azeite e sal a gosto.</p>
+                    <p><b>Modo de preparo:</b> refogue a carne em uma panela com o azeite, adicione os legumes e deixe cozinhar até amaciar. Acerte sal e sirva.</p>
+                </div>
+
+                <!-- BOLO DE CHOCOLATE COM BANANA -->
+                <div id="recipe-bolo-chocolate-banana" class="recipe-card" style="display: none;">
+                    <h4><i class="fas fa-cake-candles"></i> BOLO DE CHOCOLATE COM BANANA</h4>
+                    <p><b>Ingredientes:</b> 1 ovo, 1 banana amassada bem madura, 3 colheres sopa de aveia, 1 colher sopa de cacau em pó, 1/2 de fermento, 1 pitada de sal.</p>
+                    <p><b>Modo de preparo:</b> primeiro bata o ovo e junte a banana amassando bem, depois coloque o cacau, misturando sempre. Por fim, adicione a aveia, o sal e o fermento. Despeje em uma frigideira antiaderente (unte-a antes) e leve ao fogo baixo (cuidado para não queimar); tampe e deixe alguns segundos, vire e asse do outro lado. Desligue o fogo. Para rechear, divida o bolo ao meio; Recheio: faça uma misturinha de banana (pode ser cortada ou amassada), coco e leite de coco. Para arrematar, pode fazer a cobertura usando cacau em pó, leite de coco em pó e xilitol. Levar ao fogo até dar uma engrossada e jogar por cima.</p>
+                </div>
+
+                <!-- PANQUECA DE AMÊNDOAS -->
+                <div id="recipe-panqueca-amendoas" class="recipe-card" style="display: none;">
+                    <h4><i class="fas fa-egg"></i> PANQUECA DE AMÊNDOAS</h4>
+                    <p><b>Ingredientes:</b> 4 colheres de sopa de farinha de amêndoa, 2 ovos e 4 colheres de sopa de leite de coco.</p>
+                    <p><b>Modo de preparo:</b> numa tigela bata os ovos e o leite de coco até ficar homogêneo, adicione a farinha de amêndoa e misture bem. Aqueça uma frigideira pequena untada com manteiga ou óleo de coco, coloque a massa na frigideira com o auxílio de uma concha de servir para que se consiga o formato circular da panqueca, deixe cozinhar de ambos os lados e sirva.</p>
+                </div>
+
+                <!-- SOPA DE QUINOA COM FRANGO -->
+                <div id="recipe-sopa-quinoa" class="recipe-card" style="display: none;">
+                    <h4><i class="fas fa-soup"></i> SOPA DE QUINOA COM FRANGO</h4>
+                    <p><b>Ingredientes:</b> 1 peito de frango pequeno (inteiro), 1 cebola picada, 1 colher de sobremesa de azeite virgem, 1 chuchu picado, 1 cenoura picada, 1 tomate sem pele e sem sementes picado, sal a gosto, temperos a gosto e 1 xícara de chá de quinoa</p>
+                    <p><b>Modo de preparo:</b> desfie o peito de frango. Para facilitar o trabalho, coloque o frango e a água para ferver em fogo alto rapidamente e diminua a temperatura do fogão em seguida, deixando-a cozinhar por até 1 hora. Refogue a cebola no azeite até ficar bem dourada e acrescente o salsão, em seguida adicione o chuchu, a cenoura e o tomate. Mexa bem e tempere com sal até atingir o sabor desejado. Acrescente a quinoa e deixe cozinhar até a cenoura ficar macia. Acrescente o frango desfiado e sirva a sopa ainda quente.</p>
+                </div>
+
+                <!-- BOLO DE CANECA DE MORANGO -->
+                <div id="recipe-bolo-caneca-morango" class="recipe-card" style="display: none;">
+                    <h4><i class="fas fa-mug-hot"></i> BOLO DE CANECA DE MORANGO</h4>
+                    <p><b>Ingredientes:</b> 1 ovo, 1 colher de sopa farinha de aveia, 1 colher de sopa de xilitol ou eritritol, 1 colher de sopa cacau em pó, 1 colher de café fermento, morangos picados (opcional)</p>
+                    <p><b>Modo de preparo:</b> Misture todo os ingredientes em uma caneca e leve ao micro-ondas por 2 minutos, tire e verifique se assou, se não tiver assado leve novamente ao micro-ondas e verifique a cada um minuto, até assar</p>
+                </div>
+
+                <!-- CHIPS DE BATATA DOCE -->
+                <div id="recipe-chips-batata-doce" class="recipe-card" style="display: none;">
+                    <h4><i class="fas fa-potato"></i> CHIPS DE BATATA DOCE</h4>
+                    <p><b>Ingredientes:</b> 1 batata doce média ou a quantidade prescrita na dieta, 1/2 colher (café) de sal, 1 colher (café) de orégano, pimenta do reino à gosto,1 colheres (sopa) de azeite.</p>
+                    <p><b>Modo de preparo:</b> Lave bem a batata-doce e corte em fatias bem finas. Adicione todos ingredientes em uma vasilha. Coloque as fatias de batata-doce em uma assadeira untada com azeite. Não deixe uma fatia sobre a outra. Asse por 20 minutos em forno pré-aquecido à 230º. Vire as fatias e asse por mais 20 minutos ou até dourar. Se preferir asse em uma fritadeira elétrica, com diminuição de tempo para 10 minutos cada lado ou até dourar</p>
+                </div>
+
+                <!-- PANQUECA DE BANANA E AVEIA -->
+                <div id="recipe-panqueca-banana-aveia" class="recipe-card" style="display: none;">
+                    <h4><i class="fas fa-egg"></i> PANQUECA DE BANANA E AVEIA</h4>
+                    <p><b>Ingredientes:</b> 1 banana, 1 ovo e 3 colheres de aveia</p>
+                    <p><b>Modo de preparo:</b> amasse a banana, adicione o ovo e as colheres de aveia e coloque na frigideira. Unte a frigideira.</p>
+                </div>
+
+                <!-- BIOMASSA DE BANANA VERDE -->
+                <div id="recipe-biomassa-banana-verde" class="recipe-card" style="display: none;">
+                    <h4><i class="fas fa-leaf"></i> BIOMASSA DE BANANA VERDE</h4>
+                    <p><b>Ingredientes:</b> bananas verdes (quanto mais verde, melhor!)</p>
+                    <p><b>Modo de preparo:</b> Tire as bananas uma a uma do cacho, lave e enxágue bem. Em uma panela de pressão coloque água até a metade e deixe ferver. Quando a água estiver fervendo coloque as bananas com a casca e tampe. Ao ouvir o barulho da pressão, baixe o fogo e conte 8 minutos e desligue. Deixe que a pressão saia naturalmente da panela. Ao sair toda a pressão, retire as bananas das cascas ainda quentes e bata no liquidificador ou processador até virar uma massa.</p>
+                </div>
+
+                <!-- CREPIOCA -->
+                <div id="recipe-crepioca" class="recipe-card" style="display: none;">
+                    <h4><i class="fas fa-egg"></i> CREPIOCA</h4>
+                    <p><b>Ingredientes:</b> 1 colher de goma de tapioca, 1 ovo. Para crepioca doce, adicione adoçante a gosto, para crepioca salgada, adicione uma pitada de sal e temperos naturais.</p>
+                    <p><b>Modo de preparo:</b> em um recipiente, bata bem o ovo. Adicione a goma de tapioca e bata novamente (pode bater com um garfo mesmo), até obter uma mistura homogênea. Coloque todo o conteúdo em uma frigideira antiaderente levemente quente e mantenha em fogo baixo. Deixe por alguns segundos e vire para dourar do outro lado. Não é necessário untar.</p>
+                </div>
+
+                <!-- MANTEIGA DE AZEITE -->
+                <div id="recipe-manteiga-azeite" class="recipe-card" style="display: none;">
+                    <h4><i class="fas fa-butter"></i> MANTEIGA DE AZEITE</h4>
+                    <p><b>Ingredientes:</b> temperos naturais à vontade, azeite de oliva extra virgem.</p>
+                    <p><b>Modo de preparo:</b> em uma vasilha de vidro ou plástico escuro, misture todos os ingredientes e armazene na parte mais fria da geladeira.</p>
+                </div>
+
+                <!-- SAL DE ERVAS -->
+                <div id="recipe-sal-ervas" class="recipe-card" style="display: none;">
+                    <h4><i class="fas fa-leaf"></i> SAL DE ERVAS</h4>
+                    <p><b>Ingredientes:</b> ½ xícara de sal, ½ xícara de manjericão, ½ xícara de orégano, ½ xícara de alecrim, ½ xícara de salsinha.</p>
+                    <p><b>Modo de preparo:</b> bater tudo no liquidificador, guardar em um pote de vidro bem fechado e usar no lugar do sal comum. Além de saboroso, reduz até a medida de sal consumida. (Fonte: Ministério da Saúde)</p>
+                </div>
+
+                <!-- PÃO LOW CARB DE FRIGIDEIRA -->
+                <div id="recipe-pao-low-carb" class="recipe-card" style="display: none;">
+                    <h4><i class="fas fa-bread-slice"></i> PÃO LOW CARB DE FRIGIDEIRA</h4>
+                    <p><b>Ingredientes:</b> 2 ovos, 2 colheres sopa de farinha de amêndoa (ou aveia), 2 colheres sopa de farinha de linhaça, meia colher de café de fermento e sal a gosto.</p>
+                    <p><b>Modo de preparo:</b> bata bem os ovos, acrescente as farinhas e bata mais um pouco. Coloque o sal (se quiser colocar outros temperos) o fermento. Aqueça a frigideira com um pouco de óleo de coco e coloque a massa. Tampe e espere assar.</p>
+                </div>
+
+                <!-- SALPICÃO FUNCIONAL -->
+                <div id="recipe-salpicao-funcional" class="recipe-card" style="display: none;">
+                    <h4><i class="fas fa-salad"></i> SALPICÃO FUNCIONAL</h4>
+                    <p><b>Ingredientes:</b> 2 xicaras de frango, 1 xicara de cebola picada, 2 xicaras de cenoura cozida em cubos, 1 xicara de salsão, 1 xicara de maçã picada, ½ de tomate cereja, ½ xicara de biomassa de banana verde, ½ de nozes e amêndoas, sal a gosto.</p>
+                    <p><b>Modo de preparo:</b> desfie o frango e reserve. Passe a cebola na água quente e depois na água fria, para tirar a acidez; em uma tigela grande, misture o frango, a cebola, a cenoura, o salsão, a maçã, o tomate cereja e a maionese de biomassa; acerte o sal; enfeite com nozes, amêndoas.</p>
+                </div>
+
+                <!-- IOGURTE DE CHIA -->
+                <div id="recipe-iogurte-chia" class="recipe-card" style="display: none;">
+                    <h4><i class="fas fa-seedling"></i> IOGURTE DE CHIA</h4>
+                    <p><b>Ingredientes:</b> 3 colheres de sopa de chia, 200ml de leite de coco, 5 morangos lavados, Stevia ou Xilitol a gosto.</p>
+                    <p><b>Modo de preparo:</b> em uma taça adicione a semente de chia, leite de coco e o adoçante; cubra com papel filme e deixe hidratar de seis a oito horas em refrigeração; amasse o morango até atingir a consistência de purê; cubra o iogurte com creme de morango.</p>
+                </div>
+
+                <!-- PEIXE OU FRANGO EMPANADO -->
+                <div id="recipe-peixe-frango-empanado" class="recipe-card" style="display: none;">
+                    <h4><i class="fas fa-drumstick-bite"></i> PEIXE OU FRANGO EMPANADO</h4>
+                    <p><b>Ingredientes:</b> 2 filés de linguado ou de frango, 1 ovo, 2 colheres de leite, 2 colheres de farinha de amêndoa (farinha de linhaça, de coco aveia), sal e pimenta do reino a gosto, 1 pitada de páprica.</p>
+                    <p><b>Modo de preparo:</b> em um recipiente bata os ovos, um pouco de sal e o leite. Reserve; em um prato misture a farinha, o parmesão, a páprica, a pimenta do reino e uma pitada de sal; passe os filés pelos ovos e em seguida pela farinha; leve para assar em uma forma untada; e, asse por 25 minutos ou até os filés estarem macios e com a crosta dourada.</p>
+                </div>
+
+                <!-- GUACAMOLE -->
+                <div id="recipe-guacamole" class="recipe-card" style="display: none;">
+                    <h4><i class="fas fa-avocado"></i> GUACAMOLE</h4>
+                    <p><b>Ingredientes:</b> 1 abacate brasileiro médio, 1 tomate grande sem sementes, 1 cebola pequena, 2 dentes de alho bem socados, 1 maço de coentro, 1 pimenta malagueta sem sementes, suco de 1 limão grande, azeite extra virgem e sal.</p>
+                    <p><b>Modo de preparo:</b> amasse o abacate com um garfo; acrescente o alho socado; o suco de limão; sal e azeite a gosto e misture como um purê; pique a cebola, tomate e o coentro; pique bem a pimenta; acrescente os ingredientes picados ao "purê" de abacate.</p>
+                </div>
+
+                <!-- PIZZA DE FRIGIDEIRA FIT -->
+                <div id="recipe-pizza-frigideira" class="recipe-card" style="display: none;">
+                    <h4><i class="fas fa-pizza-slice"></i> PIZZA DE FRIGIDEIRA FIT</h4>
+                    <p><b>Ingredientes:</b> 3 ovos, sal e tempero a gosto e 2 colheres sopa de aveia.</p>
+                    <p><b>Modo de preparo:</b> mistura tudo; coloque azeite na frigideira e coloque a massa; coloque o recheio e tampe; deixe em fogo baixo, deixe assar e dourar.</p>
+                </div>
+
+                <!-- PÃO DE QUEIJO DE FRIGIDEIRA -->
+                <div id="recipe-pao-queijo-frigideira" class="recipe-card" style="display: none;">
+                    <h4><i class="fas fa-cheese"></i> PÃO DE QUEIJO DE FRIGIDEIRA</h4>
+                    <p><b>Ingredientes:</b> 2 ovos, 1 colher sopa de polvilho ou tapioca, 2 colheres sopa de leite de coco ou “Zero lactose", pitada de sal, meia colher sopa de fermento.</p>
+                    <p><b>Modo de preparo:</b> misture bem, jogue na frigideira e adicione queijo “Zero lactose”; quando estiver assado vire e deixe mais 2 min.</p>
+                </div>
+
+                <!-- SUCO DETOX SIMPLES DE LARANJA COM LIMÃO -->
+                <div id="recipe-suco-detox-laranja" class="recipe-card" style="display: none;">
+                    <h4><i class="fas fa-lemon"></i> SUCO DETOX SIMPLES DE LARANJA COM LIMÃO</h4>
+                    <p><b>Ingredientes:</b> 1 xícara de suco de laranja natural, suco de 1 limão fresco, 1 cenoura descascada, 1 colher de sopa de linhaça, gelo a gosto e adoçante, se necessário.</p>
+                    <p><b>Modo de preparo:</b> basta liquidificar tudo e seu suco detox estará pronto para ser consumido.</p>
+                </div>
+
+                <!-- SUCO DETOX SIMPLES DE MAÇÃ COM COUVE -->
+                <div id="recipe-suco-detox-maca" class="recipe-card" style="display: none;">
+                    <h4><i class="fas fa-apple-alt"></i> SUCO DETOX SIMPLES DE MAÇÃ COM COUVE</h4>
+                    <p><b>Ingredientes:</b> 2 maçãs, 2 folhas de couve fresca, 1 laranja, mel de agave para adoçar e gelo a gosto.</p>
+                    <p><b>Modo de preparo:</b> descasque a laranja, retire as sementes, mas mantenha boa parte do bagaço. Lave bem a couve e as maçãs. Bata tudo.</p>
+                </div>
+
+                <!-- MINGAU PROTEICO -->
+                <div id="recipe-mingau-proteico" class="recipe-card" style="display: none;">
+                    <h4><i class="fas fa-oat"></i> MINGAU PROTEICO</h4>
+                    <p><b>Ingredientes:</b> Aveia ou quinoa ou amaranto em flocos - 2 colheres sopa- Leite vegetal: 300ml, 2 bananas picada</p>
+                    <p><b>Modo de preparo:</b> Misture tudo e leve ao fogo baixo até engrossar.</p>
+                </div>
+
+                <!-- BOLO DE BANANA -->
+                <div id="recipe-bolo-banana-simples" class="recipe-card" style="display: none;">
+                    <h4><i class="fas fa-cake-candles"></i> BOLO DE BANANA</h4>
+                    <p><b>Ingredientes:</b> 1 banana, 2 colheres (sopa) de aveia em flocos, 1 clara, 1 colher e 1/2 (café) de fermento em pó, Canela a gosto</p>
+                    <p><b>Modo de preparo:</b> Misture em uma tigela a banana amassada, a clara, a aveia e, por último, o fermento. Unte uma caneca com margarina ou óleo e polvilhe canela em todo o seu interior. Coloque a massa na caneca e leve ao micro-ondas por 1 minuto e 30 segundos. Desenforme em um pires e sirva.</p>
+                </div>
+            </div>
+        </div>
+
+    <script>
+        document.getElementById('recipeSelector').addEventListener('change', function() {
+            var selectedRecipeId = this.value;
+            var recipeCards = document.querySelectorAll('#recipeDetailsContainer .recipe-card');
+            recipeCards.forEach(function(card) {
+                card.style.display = 'none';
+            });
+            if (selectedRecipeId) {
+                document.getElementById(selectedRecipeId).style.display = 'block';
+            }
+        });
+    </script>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
