@@ -1,0 +1,23 @@
+# Arquivos PDF com dados sensíveis
+*.pdf
+
+# Arquivos de texto extraídos
+*.txt
+
+# Scripts Python auxiliares
+extract_pdf.py
+
+# Arquivos de instruções
+instrucoes_dieta.md
+
+# Arquivos temporários
+.DS_Store
+*.tmp
+*.log
+
+# Diretórios de cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Apenas o dieta_semanal.html será enviado para o GitHub
