@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -194,10 +195,10 @@
                 <button class="nav-link" id="week1-tab" data-bs-toggle="tab" data-bs-target="#week1" type="button" role="tab" aria-controls="week1" aria-selected="false">Semana 1 <i class="fas fa-calendar-alt d-none d-sm-inline"></i></button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="week2-tab" data-bs-toggle="tab" data-bs-target="#week2" type="button" role="tab" aria-controls="week2" aria-selected="true">Semana 2 <i class="fas fa-calendar-check d-none d-sm-inline"></i></button>
+                <button class="nav-link" id="week2-tab" data-bs-toggle="tab" data-bs-target="#week2" type="button" role="tab" aria-controls="week2" aria-selected="false">Semana 2 <i class="fas fa-calendar-check d-none d-sm-inline"></i></button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="week3-tab" data-bs-toggle="tab" data-bs-target="#week3" type="button" role="tab" aria-controls="week3" aria-selected="false">Semana 3 <i class="fas fa-calendar-week d-none d-sm-inline"></i></button>
+                <button class="nav-link active" id="week3-tab" data-bs-toggle="tab" data-bs-target="#week3" type="button" role="tab" aria-controls="week3" aria-selected="true">Semana 3 <i class="fas fa-calendar-week d-none d-sm-inline"></i></button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="week4-tab" data-bs-toggle="tab" data-bs-target="#week4" type="button" role="tab" aria-controls="week4" aria-selected="false">Semana 4 <i class="fas fa-calendar-plus d-none d-sm-inline"></i></button>
@@ -574,7 +575,7 @@
             </div>
 
             <!-- Semana 2 Content -->
-            <div class="tab-pane fade show active" id="week2" role="tabpanel" aria-labelledby="week2-tab">
+            <div class="tab-pane fade" id="week2" role="tabpanel" aria-labelledby="week2-tab">
                 <h2 class="mt-4">Dieta da Semana 2</h2>
 
                 <div class="accordion mt-4" id="accordionOrientationsWeek2">
@@ -965,9 +966,8 @@
             </div>
 
             <!-- Semana 3 Content -->
-            <div class="tab-pane fade" id="week3" role="tabpanel" aria-labelledby="week3-tab">
+            <div class="tab-pane fade show active" id="week3" role="tabpanel" aria-labelledby="week3-tab">
                 <h2 class="mt-4">Dieta da Semana 3</h2>
-
                 <div class="accordion mt-4" id="accordionOrientationsWeek3">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOrientationsW3">
@@ -979,21 +979,24 @@
                             <div class="accordion-body">
                                 <ul>
                                     <li>Restrições: Glúten, Lactose, Cafeína, Açúcar, Carne vermelha, Álcool.</li>
-                                    <li>Suplementos e produtos naturais permitidos: Whey protein isolado, Creatina, Colágeno, Spirulina, Chlorella, Óleo de coco, Óleo de linhaça, Óleo de chia, Óleo de prímula, Óleo de borragem.</li>
-                                    <li>Beba água! Calcule 35ml X seu peso.</li>
+                                    <li>Os suplementos e produtos naturais prescritos no dia da consulta devem ser usados conforme orientação da receita no seu aplicativo.</li>
+                                    <li>Não mantenha o foco na balança e sim no seu bem-estar.</li>
+                                    <li>Mais importante do que perder peso é terminar o processo de forma tranquila e se sentindo bem.</li>
+                                    <li>Chás ricos em antioxidantes e com efeito diurético: Tomar durante o dia Chá de cavalinha, Hibisco e chá Branco.</li>
+                                    <li>Temperos Permitidos: Pimenta de cheiro, orégano, manjericão, sal rosa, cebola, alho, pimenta do reino, cebolinha, salsinha, alho poro, louro, gengibre, curry e alecrim.</li>
+                                    <li>Não ingerir chás estimulantes como chá verde, chá mate ou chá preto.</li>
                                     <li>Procure fazer as refeições em locais calmos.</li>
                                     <li>Mastigue bem os alimentos!</li>
+                                    <li>Beba água! Calcule 35ml X seu peso.</li>
                                     <li>Faça um prato colorido!</li>
                                     <li>Ingerir alimentos assados, grelhados e cozidos.</li>
-                                    <li>Para cozinhar: óleo de coco, banha de porco ou azeite de oliva.</li>
-                                    <li>Temperos Permitidos: Pimenta de cheiro, orégano, manjericão, sal rosa, cebola, alho, pimenta do reino, cebolinha, salsinha, alho poro, louro, gengibre, curry e alecrim, cúrcuma.</li>
-                                    <li>Chás recomendados: Cavalinha, Hibisco, Chá Branco, Camomila, Melissa, Jasmim, Gengibre, Hortelã, Cidreira.</li>
+                                    <li>Azeite extra virgem: acidez < 0,5%, armazenar em temp ambiente e fora da luz. Não submeter à cocção.</li>
+                                    <li>Para cozinhar: prefira óleo de coco, banha de porco ou azeite de oliva.</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <div class="accordion mt-4" id="accordionWeek3">
                     <!-- Segunda-feira -->
                     <div class="accordion-item">
@@ -1004,32 +1007,42 @@
                         </h2>
                         <div id="collapseW3Mon" class="accordion-collapse collapse" aria-labelledby="headingW3Mon" data-bs-parent="#accordionWeek3">
                             <div class="accordion-body">
-                                <div class="meal-time"><i class="fas fa-cookie-bite"></i> COLAÇÃO (08:30h)</div>
+                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ (8:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Suco Detox (200ml) (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Suco Detox (300ml) (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Creatina (1 medida)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Linhaça (1 colher sobremesa)</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 Tapioca: 2 colher de sopa</li>
+                                    <li><i class="fas fa-dot-circle"></i> 2 ovos ou frango desfiado</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 fruta</li>
+                                    <li><i class="fas fa-dot-circle"></i> Café descafeinado Ou Chá Claros ou suco natural ou leite vegetal 0 lactose:200ml</li>
                                 </ul>
-                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ (09:30h)</div>
+                                <div class="meal-time"><i class="fas fa-cookie-bite"></i> COLAÇÃO (10:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Panqueca de banana e aveia (ver receita)</li>
-                                    <li><i class="fas fa-dot-circle"></i> Café descafeinado ou Chás claros: 200ml</li>
+                                    <li><i class="fas fa-dot-circle"></i> 2 Frutas picadas com 2 colheres de sopa de aveia</li>
+                                    <li><i class="fas fa-dot-circle"></i> Whey isolado (1 scoop)</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-utensils"></i> ALMOÇO (12:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Sopa de quinoa com frango (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Salada Crua - á vontade</li>
+                                    <li><i class="fas fa-dot-circle"></i> Peixe ou sobrecoxa assada com legumes 120g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Arroz Integral ou macarrão sem glúten - 80g</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-apple-alt"></i> LANCHE (16:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Iogurte zero lactose: 200ml</li>
-                                    <li><i class="fas fa-dot-circle"></i> Chia: 1 colher de sopa</li>
+                                    <li><i class="fas fa-dot-circle"></i> Biscoito de arroz grande: 2 unidades</li>
+                                    <li><i class="fas fa-dot-circle"></i> Pasta de amendoim ou geléia 0 açúcar: 2 colheres de sobremesa</li>
+                                    <li><i class="fas fa-dot-circle"></i> Chá Claros ou suco natural ou leite vegetal 0 lactose:200ml</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-moon"></i> JANTA (19:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Peixe assado com limão: 120g</li>
-                                    <li><i class="fas fa-dot-circle"></i> Salada verde: à vontade</li>
+                                    <li><i class="fas fa-dot-circle"></i> Espetinho de frango: 1 unidade</li>
+                                    <li><i class="fas fa-dot-circle"></i> Vinagrete: 3 colheres sopa</li>
+                                    <li><i class="fas fa-dot-circle"></i> Suco da fruta 200ml</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-bed"></i> CEIA (22:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Pizza de frigideira (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 Banana amassada com canela ou pasta de amendoim: 1 colher de sobremesa</li>
                                 </ul>
                             </div>
                         </div>
@@ -1043,33 +1056,41 @@
                         </h2>
                         <div id="collapseW3Tue" class="accordion-collapse collapse" aria-labelledby="headingW3Tue" data-bs-parent="#accordionWeek3">
                             <div class="accordion-body">
-                                <div class="meal-time"><i class="fas fa-cookie-bite"></i> COLAÇÃO (08:30h)</div>
+                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ (8:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Suco Detox (200ml) (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Suco Detox (300ml) (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Creatina (1 medida)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Linhaça (1 colher sobremesa)</li>
+                                    <li><i class="fas fa-dot-circle"></i> 2 fatias de pães 0 glúten com 2 ovos e 1 fatia de quijo tipo minas 0 lactose</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 fruta</li>
+                                    <li><i class="fas fa-dot-circle"></i> Café descafeinado Ou Chá Claros ou suco natural ou leite vegetal 0 lactose:200ml</li>
                                 </ul>
-                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ (09:30h)</div>
+                                <div class="meal-time"><i class="fas fa-cookie-bite"></i> COLAÇÃO (10:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Panqueca de banana e aveia (ver receita)</li>
-                                    <li><i class="fas fa-dot-circle"></i> Café descafeinado ou Chás claros: 200ml</li>
+                                    <li><i class="fas fa-dot-circle"></i> Tâmaras recheadas com pasta de amendoim: 3 unidades</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-utensils"></i> ALMOÇO (12:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Peixe ao molho de leite de coco: 120g</li>
-                                    <li><i class="fas fa-dot-circle"></i> Arroz integral: 80g</li>
-                                    <li><i class="fas fa-dot-circle"></i> Salada verde: à vontade</li>
+                                    <li><i class="fas fa-dot-circle"></i> Peixe assado com limão 120g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Salada Crua - á vontade</li>
+                                    <li><i class="fas fa-dot-circle"></i> Purê de mandioquinha - 80g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Legumes cozidos 80g</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-apple-alt"></i> LANCHE (16:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Iogurte zero lactose: 200ml</li>
-                                    <li><i class="fas fa-dot-circle"></i> Chia: 1 colher de sopa</li>
+                                    <li><i class="fas fa-dot-circle"></i> Panqueca de banana e aveia (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Recheio: Creme de Whey isolado: 1 scoop e 1 fruta picada</li>
+                                    <li><i class="fas fa-dot-circle"></i> Chá Claros ou suco natural ou leite vegetal 0 lactose:200ml</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-moon"></i> JANTA (19:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Lasanha de abobrinha (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Sopa de quinoa com frango 300ml (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 fruta</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-bed"></i> CEIA (22:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Chás claros: 200ml</li>
+                                    <li><i class="fas fa-dot-circle"></i> Queijo tipo minas 0 Lactose - 1 fatia grande</li>
+                                    <li><i class="fas fa-dot-circle"></i> Chá de hortela ou camomila - 200ml</li>
                                 </ul>
                             </div>
                         </div>
@@ -1083,34 +1104,45 @@
                         </h2>
                         <div id="collapseW3Wed" class="accordion-collapse collapse" aria-labelledby="headingW3Wed" data-bs-parent="#accordionWeek3">
                             <div class="accordion-body">
-                                <div class="meal-time"><i class="fas fa-cookie-bite"></i> COLAÇÃO (08:30h)</div>
+                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ (8:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Suco Detox (200ml) (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Suco Detox (300ml) (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Creatina (1 medida)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Linhaça (1 colher sobremesa)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Iogurte natutal 0 lactose 160g a 200g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Whey isolado (1 scoop)</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 fruta picada</li>
+                                    <li><i class="fas fa-dot-circle"></i> Aveia ou glanola 0 glúten 0 açúcar: 2 colheres de sopa</li>
                                 </ul>
-                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ (09:30h)</div>
+                                <div class="meal-time"><i class="fas fa-cookie-bite"></i> COLAÇÃO (10:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Panqueca de banana e aveia (ver receita)</li>
-                                    <li><i class="fas fa-dot-circle"></i> Café descafeinado ou Chás claros: 200ml</li>
+                                    <li><i class="fas fa-dot-circle"></i> Uvas congeladas (5 unidade)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Leite de coco em pó- 1 colher sopa</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-utensils"></i> ALMOÇO (12:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Frango à passarinho: 120g</li>
-                                    <li><i class="fas fa-dot-circle"></i> Purê de batata doce: 100g</li>
-                                    <li><i class="fas fa-dot-circle"></i> Salada verde: à vontade</li>
+                                    <li><i class="fas fa-dot-circle"></i> Olemete com espinafre: 3 ovos</li>
+                                    <li><i class="fas fa-dot-circle"></i> Purê de batata doce: 80g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Vagem Salteada: 1 colher de servir</li>
+                                    <li><i class="fas fa-dot-circle"></i> Salada Crua - á vontade</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-apple-alt"></i> LANCHE (16:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Iogurte zero lactose: 200ml</li>
-                                    <li><i class="fas fa-dot-circle"></i> Chia: 1 colher de sopa</li>
+                                    <li><i class="fas fa-dot-circle"></i> Pizza de frigideira (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Chá Claros ou suco natural ou leite vegetal 0 lactose:200ml</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-moon"></i> JANTA (19:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Macarrão sem glúten: 80g</li>
-                                    <li><i class="fas fa-dot-circle"></i> Molho de tomate caseiro: à vontade</li>
+                                    <li><i class="fas fa-dot-circle"></i> Peixe ou frango grelhado - 100g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Salada crua: a vontade</li>
+                                    <li><i class="fas fa-dot-circle"></i> Legumes cozidos: 2 colheres servir</li>
+                                    <li><i class="fas fa-dot-circle"></i> Suco da fruta 200ml</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-bed"></i> CEIA (22:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Chás claros: 200ml</li>
+                                    <li><i class="fas fa-dot-circle"></i> Iogurte Natural 0 lactose: 200ml</li>
+                                    <li><i class="fas fa-dot-circle"></i> Farelo de aveia 1 colher sopa</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 fruta picada</li>
                                 </ul>
                             </div>
                         </div>
@@ -1124,32 +1156,42 @@
                         </h2>
                         <div id="collapseW3Thu" class="accordion-collapse collapse" aria-labelledby="headingW3Thu" data-bs-parent="#accordionWeek3">
                             <div class="accordion-body">
-                                <div class="meal-time"><i class="fas fa-cookie-bite"></i> COLAÇÃO (08:30h)</div>
+                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ (8:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Suco Detox (200ml) (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Suco Detox (300ml) (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Creatina (1 medida)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Linhaça (1 colher sobremesa)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Biscoito de arroz grade: 2 unidades</li>
+                                    <li><i class="fas fa-dot-circle"></i> Ou torradas 0 açúcar 0 glúten: 3 unidades</li>
+                                    <li><i class="fas fa-dot-circle"></i> Requeijão 0 lactose ou Geleia sem açúcar ou pasta de amendoim ou alfarroba: 1 colher sopa</li>
+                                    <li><i class="fas fa-dot-circle"></i> Café descafeinado Chá Claros ou suco natural ou leite vegetal 0 lactose:200ml</li>
                                 </ul>
-                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ (09:30h)</div>
+                                <div class="meal-time"><i class="fas fa-cookie-bite"></i> COLAÇÃO (10:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Panqueca de banana e aveia (ver receita)</li>
-                                    <li><i class="fas fa-dot-circle"></i> Café descafeinado ou Chás claros: 200ml</li>
+                                    <li><i class="fas fa-dot-circle"></i> Mix de castanhas: 5 unidaes</li>
+                                    <li><i class="fas fa-dot-circle"></i> Whey isolado (1 scoop)</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-utensils"></i> ALMOÇO (12:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Peixe grelhado: 120g</li>
-                                    <li><i class="fas fa-dot-circle"></i> Legumes refogados: à vontade</li>
+                                    <li><i class="fas fa-dot-circle"></i> Peixe ao molho de leite de coco ou frango Grelhado -120g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Macarrão 0 glúten/ konjac - 80g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Salada crua: a vontade</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-apple-alt"></i> LANCHE (16:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Iogurte zero lactose: 200ml</li>
-                                    <li><i class="fas fa-dot-circle"></i> Chia: 1 colher de sopa</li>
+                                    <li><i class="fas fa-dot-circle"></i> Salada de frutas - 200ml</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 colher de aveia</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-moon"></i> JANTA (19:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Sopa de legumes: 300ml</li>
+                                    <li><i class="fas fa-dot-circle"></i> File de frango - 100g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Salada crua - a vontade</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 fruta</li>
+                                    <li><i class="fas fa-dot-circle"></i> Suco da fruta 200ml</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-bed"></i> CEIA (22:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Chás claros: 200ml</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 Maçã assada com canela</li>
                                 </ul>
                             </div>
                         </div>
@@ -1163,33 +1205,42 @@
                         </h2>
                         <div id="collapseW3Fri" class="accordion-collapse collapse" aria-labelledby="headingW3Fri" data-bs-parent="#accordionWeek3">
                             <div class="accordion-body">
-                                <div class="meal-time"><i class="fas fa-cookie-bite"></i> COLAÇÃO (08:30h)</div>
+                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ (8:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Suco Detox (200ml) (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Suco Detox (300ml) (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Creatina (1 medida)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Linhaça (1 colher sobremesa)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Cuscuz cozido 60g com 1 ovo</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 fruta</li>
+                                    <li><i class="fas fa-dot-circle"></i> Café descafeinado Chá Claros ou suco natural ou leite vegetal ou 0 lactose:200ml</li>
                                 </ul>
-                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ (09:30h)</div>
+                                <div class="meal-time"><i class="fas fa-cookie-bite"></i> COLAÇÃO (10:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Panqueca de banana e aveia (ver receita)</li>
-                                    <li><i class="fas fa-dot-circle"></i> Café descafeinado ou Chás claros: 200ml</li>
+                                    <li><i class="fas fa-dot-circle"></i> Salada de frutas 300ml</li>
+                                    <li><i class="fas fa-dot-circle"></i> Whey isolado (1 scoop)</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-utensils"></i> ALMOÇO (12:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Frango grelhado: 120g</li>
-                                    <li><i class="fas fa-dot-circle"></i> Quinoa: 80g</li>
-                                    <li><i class="fas fa-dot-circle"></i> Salada mista: à vontade</li>
+                                    <li><i class="fas fa-dot-circle"></i> Arroz integral com brócolis - 2 colheres de servir</li>
+                                    <li><i class="fas fa-dot-circle"></i> Salada: mix de folhas verdes, beterraba crua e chuchu</li>
+                                    <li><i class="fas fa-dot-circle"></i> Frango grelhagado com cúrcuma - 120g</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-apple-alt"></i> LANCHE (16:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Iogurte zero lactose: 200ml</li>
-                                    <li><i class="fas fa-dot-circle"></i> Chia: 1 colher de sopa</li>
+                                    <li><i class="fas fa-dot-circle"></i> Torrada 0 glúten: 2 unidades</li>
+                                    <li><i class="fas fa-dot-circle"></i> Pasta de castanhas ou patê de atum - 1 colher sopa</li>
+                                    <li><i class="fas fa-dot-circle"></i> Chá Claros ou suco natural ou leite vegetal 0 lactose:200ml</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-moon"></i> JANTA (19:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Omelete de legumes: 2 ovos</li>
+                                    <li><i class="fas fa-dot-circle"></i> Lasanha de abobrinha 100g (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Salada crua: a vontade</li>
+                                    <li><i class="fas fa-dot-circle"></i> Suco de uva Integral: 200ml</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-bed"></i> CEIA (22:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Chás claros: 200ml</li>
+                                    <li><i class="fas fa-dot-circle"></i> Iogurte de chia 160g (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 Fruta picada</li>
                                 </ul>
                             </div>
                         </div>
@@ -1203,34 +1254,44 @@
                         </h2>
                         <div id="collapseW3Sat" class="accordion-collapse collapse" aria-labelledby="headingW3Sat" data-bs-parent="#accordionWeek3">
                             <div class="accordion-body">
-                                <div class="meal-time"><i class="fas fa-cookie-bite"></i> COLAÇÃO (08:30h)</div>
+                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ (8:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Suco Detox (200ml) (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Suco Detox (300ml) (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Creatina (1 medida)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Linhaça (1 colher sobremesa)</li>
+                                    <li><i class="fas fa-dot-circle"></i> 2 fatias de pães 0 glúten com 2 ovos e 1 fatia de queijo tipo minas</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 fruta</li>
+                                    <li><i class="fas fa-dot-circle"></i> Café descafeinado Ou Chá Claros ou suco natural ou leite vegetal 0 lactose:200ml</li>
                                 </ul>
-                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ (09:30h)</div>
+                                <div class="meal-time"><i class="fas fa-cookie-bite"></i> COLAÇÃO (10:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Panqueca de banana e aveia (ver receita)</li>
-                                    <li><i class="fas fa-dot-circle"></i> Café descafeinado ou Chás claros: 200ml</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 fruta</li>
+                                    <li><i class="fas fa-dot-circle"></i> Leite de coco em pó- 1 colher sopa</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-utensils"></i> ALMOÇO (12:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Peixe assado: 120g</li>
-                                    <li><i class="fas fa-dot-circle"></i> Batata doce: 100g</li>
-                                    <li><i class="fas fa-dot-circle"></i> Brócolis: à vontade</li>
+                                    <li><i class="fas fa-dot-circle"></i> Frango à passarinho assada 120g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Salada Crua - á vontade</li>
+                                    <li><i class="fas fa-dot-circle"></i> Arroz integral - 2 colheres de servir</li>
+                                    <li><i class="fas fa-dot-circle"></i> Legumes cozidos 80g</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-apple-alt"></i> LANCHE (16:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Iogurte zero lactose: 200ml</li>
-                                    <li><i class="fas fa-dot-circle"></i> Chia: 1 colher de sopa</li>
+                                    <li><i class="fas fa-dot-circle"></i> Iogurte Natural: 200ml</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 sccop de Whey isolado</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 fruta</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-moon"></i> JANTA (19:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Salada completa: à vontade</li>
-                                    <li><i class="fas fa-dot-circle"></i> Proteína vegetal: 100g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Purê de batata inglesa 80g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Legumes Assados 80g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Filé de frango ou peixe grelhado - 100g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Suco da Fruta: 200ml</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-bed"></i> CEIA (22:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Chás claros: 200ml</li>
+                                    <li><i class="fas fa-dot-circle"></i> Mingau de Aveia: 200ml</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 fruta picada</li>
                                 </ul>
                             </div>
                         </div>
@@ -1244,33 +1305,44 @@
                         </h2>
                         <div id="collapseW3Sun" class="accordion-collapse collapse" aria-labelledby="headingW3Sun" data-bs-parent="#accordionWeek3">
                             <div class="accordion-body">
-                                <div class="meal-time"><i class="fas fa-cookie-bite"></i> COLAÇÃO (08:30h)</div>
+                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ (8:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Suco Detox (200ml) (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Suco Detox (300ml) (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Creatina (1 medida)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Linhaça (1 colher sobremesa)</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 Tapioca com 2 colheres de sopa. 2 ovos ou frango desfiado</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 fruta</li>
+                                    <li><i class="fas fa-dot-circle"></i> Café descafeinado Ou Chá Claros ou suco natural ou leite vegetal 0 lactose:200ml</li>
                                 </ul>
-                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ (09:30h)</div>
+                                <div class="meal-time"><i class="fas fa-cookie-bite"></i> COLAÇÃO (10:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Panqueca de banana e aveia (ver receita)</li>
-                                    <li><i class="fas fa-dot-circle"></i> Café descafeinado ou Chás claros: 200ml</li>
+                                    <li><i class="fas fa-dot-circle"></i> Mix de castanhas: 5 unidades</li>
+                                    <li><i class="fas fa-dot-circle"></i> Whey isolado (1 scoop)</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-utensils"></i> ALMOÇO (12:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Frango assado: 120g</li>
-                                    <li><i class="fas fa-dot-circle"></i> Arroz integral: 80g</li>
-                                    <li><i class="fas fa-dot-circle"></i> Legumes variados: à vontade</li>
+                                    <li><i class="fas fa-dot-circle"></i> File de frango recheado com queijo 0 lactose: 2 files 120g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Legumes a vapor: 3 colheres de sopa</li>
+                                    <li><i class="fas fa-dot-circle"></i> Salada crua - a vontade</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-apple-alt"></i> LANCHE (16:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Iogurte zero lactose: 200ml</li>
-                                    <li><i class="fas fa-dot-circle"></i> Chia: 1 colher de sopa</li>
+                                    <li><i class="fas fa-dot-circle"></i> Crepioca (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Recheio: Frango desfiado ou atum 80g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Ou</li>
+                                    <li><i class="fas fa-dot-circle"></i> Peta: 5 unidades</li>
+                                    <li><i class="fas fa-dot-circle"></i> Chá Claros ou suco natural ou leite vegetal 0 lactose:200ml</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-moon"></i> JANTA (19:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Sopa nutritiva: 300ml</li>
+                                    <li><i class="fas fa-dot-circle"></i> Macarrão sem glúten - 80g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Frango desfiado ou atum 4 colheres sopa</li>
+                                    <li><i class="fas fa-dot-circle"></i> Suco de frutas - 200ml</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-bed"></i> CEIA (22:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Chás claros: 200ml</li>
+                                    <li><i class="fas fa-dot-circle"></i> Petas: 3 unidaes</li>
+                                    <li><i class="fas fa-dot-circle"></i> Chá Claros 200ml</li>
                                 </ul>
                             </div>
                         </div>
@@ -1281,7 +1353,6 @@
             <!-- Semana 4 Content -->
             <div class="tab-pane fade" id="week4" role="tabpanel" aria-labelledby="week4-tab">
                 <h2 class="mt-4">Dieta da Semana 4</h2>
-
                 <div class="accordion mt-4" id="accordionOrientationsWeek4">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOrientationsW4">
@@ -1293,21 +1364,24 @@
                             <div class="accordion-body">
                                 <ul>
                                     <li>Restrições: Glúten, Lactose, Cafeína, Açúcar, Carne vermelha, Álcool.</li>
-                                    <li>Suplementos e produtos naturais permitidos: Whey protein isolado, Creatina, Colágeno, Spirulina, Chlorella, Óleo de coco, Óleo de linhaça, Óleo de chia, Óleo de prímula, Óleo de borragem.</li>
-                                    <li>Beba água! Calcule 35ml X seu peso.</li>
+                                    <li>Os suplementos e produtos naturais prescritos no dia da consulta devem ser usados conforme orientação da receita no seu aplicativo.</li>
+                                    <li>Não mantenha o foco na balança e sim no seu bem-estar.</li>
+                                    <li>Mais importante do que perder peso é terminar o processo de forma tranquila e se sentindo bem.</li>
+                                    <li>Chás ricos em antioxidantes e com efeito diurético: Tomar durante o dia Chá de cavalinha, Hibisco e chá Branco.</li>
+                                    <li>Temperos Permitidos: Pimenta de cheiro, orégano, manjericão, sal rosa, cebola, alho, pimenta do reino, cebolinha, salsinha, alho poro, louro, gengibre, curry e alecrim.</li>
+                                    <li>Não ingerir chás estimulantes como chá verde, chá mate ou chá preto.</li>
                                     <li>Procure fazer as refeições em locais calmos.</li>
                                     <li>Mastigue bem os alimentos!</li>
+                                    <li>Beba água! Calcule 35ml X seu peso.</li>
                                     <li>Faça um prato colorido!</li>
                                     <li>Ingerir alimentos assados, grelhados e cozidos.</li>
-                                    <li>Para cozinhar: óleo de coco, banha de porco ou azeite de oliva.</li>
-                                    <li>Temperos Permitidos: Pimenta de cheiro, orégano, manjericão, sal rosa, cebola, alho, pimenta do reino, cebolinha, salsinha, alho poro, louro, gengibre, curry e alecrim, cúrcuma.</li>
-                                    <li>Chás recomendados: Cavalinha, Hibisco, Chá Branco, Camomila, Melissa, Jasmim, Gengibre, Hortelã, Cidreira.</li>
+                                    <li>Azeite extra virgem: acidez < 0,5%, armazenar em temp ambiente e fora da luz. Não submeter à cocção.</li>
+                                    <li>Para cozinhar: prefira óleo de coco, banha de porco ou azeite de oliva.</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <div class="accordion mt-4" id="accordionWeek4">
                     <!-- Segunda-feira -->
                     <div class="accordion-item">
@@ -1318,29 +1392,39 @@
                         </h2>
                         <div id="collapseW4Mon" class="accordion-collapse collapse" aria-labelledby="headingW4Mon" data-bs-parent="#accordionWeek4">
                             <div class="accordion-body">
-                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ (08:30h)</div>
+                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ (8:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Shake de Açaí (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Shake Neutro + fibras (ver receita)</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-cookie-bite"></i> COLAÇÃO (10:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Creme de banana (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Mix de Castanhas: 8 unidades</li>
+                                    <li><i class="fas fa-dot-circle"></i> Creatina (1 scoop)</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-utensils"></i> ALMOÇO (12:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Pizza de frigideira (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Salada Crua e verduras - à vontade</li>
+                                    <li><i class="fas fa-dot-circle"></i> frango ou peixe -100g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Macarrão 0 glúten com brócolis: 2 colheres de servir</li>
+                                    <li><i class="fas fa-dot-circle"></i> Grão de bico refolgado 1 colher de servir</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-apple-alt"></i> LANCHE (16:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Caldo de Feijão (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Bolo (ver receita): 60g</li>
+                                    <li><i class="fas fa-dot-circle"></i> 100ml de café ou chá</li>
+                                    <li><i class="fas fa-dot-circle"></i> Ou</li>
+                                    <li><i class="fas fa-dot-circle"></i> Petas: 5 unidades</li>
+                                    <li><i class="fas fa-dot-circle"></i> Chá Claros ou suco natural ou leite vegetal 0 lactose:200ml</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-moon"></i> JANTA (19:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Shake de canela (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Sopa de Legumes com frango-350ml</li>
+                                    <li><i class="fas fa-dot-circle"></i> Suco de uva integral: 200ml</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-bed"></i> CEIA (22:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Shake de ameixa (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Iogurte Natural 0 lactose: 250ml</li>
+                                    <li><i class="fas fa-dot-circle"></i> Uva passas: 1 colher sopa</li>
                                 </ul>
                             </div>
                         </div>
@@ -1354,29 +1438,36 @@
                         </h2>
                         <div id="collapseW4Tue" class="accordion-collapse collapse" aria-labelledby="headingW4Tue" data-bs-parent="#accordionWeek4">
                             <div class="accordion-body">
-                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ (08:30h)</div>
+                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ (8:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Shake acelerador (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Shake de Açaí (ver receita)</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-cookie-bite"></i> COLAÇÃO (10:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Creme de banana (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> 2 frutas picadas com aveia: 2 colheres de sopa</li>
+                                    <li><i class="fas fa-dot-circle"></i> Creatina (1 scoop)</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-utensils"></i> ALMOÇO (12:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Caldo de abóbora com quinoa e frango (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Salada Crua e verduras - à vontade</li>
+                                    <li><i class="fas fa-dot-circle"></i> frango ou peixe/salmão / atum- 120g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Abobora regada no azeite assada com casca: 3 fatias</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-apple-alt"></i> LANCHE (16:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Bolo de amendoim ou castanhas (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Torrada 0 glúten: 2 unidades</li>
+                                    <li><i class="fas fa-dot-circle"></i> Pasta de castanhas ou patê de atum - 1 colher sopa</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 Fruta</li>
+                                    <li><i class="fas fa-dot-circle"></i> Chá Claros ou suco natural ou leite vegetal 0 lactose:200ml</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-moon"></i> JANTA (19:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Sopa de legumes com frango (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Caldo de abobora com Quinoa e frango 350ml (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 fruta</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-bed"></i> CEIA (22:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Bolo de chocolate com banana (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Creme de mamão: 200ml</li>
                                 </ul>
                             </div>
                         </div>
@@ -1390,29 +1481,35 @@
                         </h2>
                         <div id="collapseW4Wed" class="accordion-collapse collapse" aria-labelledby="headingW4Wed" data-bs-parent="#accordionWeek4">
                             <div class="accordion-body">
-                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ (08:30h)</div>
+                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ (8:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Panqueca de amêndoas (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Shake de coco com Hortelã (ver receita)</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-cookie-bite"></i> COLAÇÃO (10:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Shake de frutas (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Iogurte Natural 0 lactose: 200ml</li>
+                                    <li><i class="fas fa-dot-circle"></i> Geleia de frutas sem açúcar 1 colher sopa</li>
+                                    <li><i class="fas fa-dot-circle"></i> Creatina (1 scoop)</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-utensils"></i> ALMOÇO (12:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Sopa de quinoa com frango (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Purê de batata doce:2 colheres de servir</li>
+                                    <li><i class="fas fa-dot-circle"></i> frango ou peixe -100g</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-apple-alt"></i> LANCHE (16:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Panqueca de banana e aveia (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Pizza de frigideira (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Chá Claros ou suco natural ou leite vegetal 0 lactose:200ml</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-moon"></i> JANTA (19:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Biomassa de banana verde (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> File de frango recheado com queijo O lactose - 2 unidades</li>
+                                    <li><i class="fas fa-dot-circle"></i> Salada crua - a vontade</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-bed"></i> CEIA (22:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Crepioca (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Queijo branco 0 lactose: 1 fatia</li>
+                                    <li><i class="fas fa-dot-circle"></i> Chá claro - 200ml</li>
                                 </ul>
                             </div>
                         </div>
@@ -1426,30 +1523,34 @@
                         </h2>
                         <div id="collapseW4Thu" class="accordion-collapse collapse" aria-labelledby="headingW4Thu" data-bs-parent="#accordionWeek4">
                             <div class="accordion-body">
-                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ (08:30h)</div>
+                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ (8:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Pão low carb de frigideira (ver receita)</li>
-                                    <li><i class="fas fa-dot-circle"></i> Manteiga de azeite (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Shake de Abacate e cacau (ver receita)</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-cookie-bite"></i> COLAÇÃO (10:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Salpicão funcional (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Tâmaras recheadas com pasta de amendoim: 3 unidades</li>
+                                    <li><i class="fas fa-dot-circle"></i> Creatina (1 scoop)</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-utensils"></i> ALMOÇO (12:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Iogurte de chia (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Salada Crua - à vontade</li>
+                                    <li><i class="fas fa-dot-circle"></i> Macarrão 0 glúten/konjac: 100g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Molho de frango moído com tomate e gergelim - 5 colheres de servir</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-apple-alt"></i> LANCHE (16:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Peixe ou frango empanado (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Peta: 5 unidades</li>
+                                    <li><i class="fas fa-dot-circle"></i> Água de coco - 200ml</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-moon"></i> JANTA (19:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Guacamole (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Caldo de Feijão: 350ml (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 fruta</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-bed"></i> CEIA (22:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Pizza de frigideira fit (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Amêndoas: 8 unidades</li>
                                 </ul>
                             </div>
                         </div>
@@ -1463,29 +1564,36 @@
                         </h2>
                         <div id="collapseW4Fri" class="accordion-collapse collapse" aria-labelledby="headingW4Fri" data-bs-parent="#accordionWeek4">
                             <div class="accordion-body">
-                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ (08:30h)</div>
+                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ (8:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Pão de queijo de frigideira (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Shake de canela (ver receita)</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-cookie-bite"></i> COLAÇÃO (10:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Sucos detox simples (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Uvas congeladas (5 unidade)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Leite de coco em pó e granola 0 açúcar- 1 colher sopa</li>
+                                    <li><i class="fas fa-dot-circle"></i> Creatina (1 scoop)</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-utensils"></i> ALMOÇO (12:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Refeição livre (seguindo orientações)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Salada Crua - á vontade</li>
+                                    <li><i class="fas fa-dot-circle"></i> File de frango recheado com queijo 0 lactose: 120g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Legumes a vapor: 1 colher de servir</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-apple-alt"></i> LANCHE (16:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Shake de frutas (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Iogurte de Chia (Ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 fruta picada</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-moon"></i> JANTA (19:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Sopa de legumes (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Caldo de legumes com frango 350ml (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 fruta</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-bed"></i> CEIA (22:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Chás claros: 200ml</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 fruta</li>
+                                    <li><i class="fas fa-dot-circle"></i> Mix de Castanhas: 3 unidades</li>
                                 </ul>
                             </div>
                         </div>
@@ -1499,29 +1607,40 @@
                         </h2>
                         <div id="collapseW4Sat" class="accordion-collapse collapse" aria-labelledby="headingW4Sat" data-bs-parent="#accordionWeek4">
                             <div class="accordion-body">
-                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ (08:30h)</div>
+                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ (8:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Shake acelerador (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Shake de ameixa (ver receita)</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-cookie-bite"></i> COLAÇÃO (10:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Creme de banana (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Mamão papaya - 1 metade</li>
+                                    <li><i class="fas fa-dot-circle"></i> Leite de coco em pó: 1 colher sopa</li>
+                                    <li><i class="fas fa-dot-circle"></i> Creatina (1 sccop)</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-utensils"></i> ALMOÇO (12:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Refeição livre (seguindo orientações)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Salada Crua - á vontade</li>
+                                    <li><i class="fas fa-dot-circle"></i> Macarrão 0 glúten -80g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Molho de shitake/ shimeji ou mulho de frango com creme de leite 0 lactose - 100g</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-apple-alt"></i> LANCHE (16:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Bolo de amendoim ou castanhas (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Panqueca (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Recheio:</li>
+                                    <li><i class="fas fa-dot-circle"></i> Patê de atum ou pasta de amendoim 80g</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-moon"></i> JANTA (19:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Sopa de legumes com frango (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Peixe ou frango grelhado - 100g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Salada crua: a vontade</li>
+                                    <li><i class="fas fa-dot-circle"></i> Legumes cozidos: 2 colheres servir</li>
+                                    <li><i class="fas fa-dot-circle"></i> Suco da fruta 200ml</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-bed"></i> CEIA (22:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Chás claros: 200ml</li>
+                                    <li><i class="fas fa-dot-circle"></i> Mingau de Aveia: 200ml</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1 scoop de whey</li>
+                                    <li><i class="fas fa-dot-circle"></i> 2 Frutas picadas</li>
                                 </ul>
                             </div>
                         </div>
@@ -1535,29 +1654,46 @@
                         </h2>
                         <div id="collapseW4Sun" class="accordion-collapse collapse" aria-labelledby="headingW4Sun" data-bs-parent="#accordionWeek4">
                             <div class="accordion-body">
-                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ (08:30h)</div>
+                                <div class="meal-time"><i class="fas fa-coffee"></i> CAFÉ DA MANHÃ (8:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Panqueca de banana e aveia (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> 200ml de Iogurte zero lactose natural</li>
+                                    <li><i class="fas fa-dot-circle"></i> 2 unidades de castanha do Pará,</li>
+                                    <li><i class="fas fa-dot-circle"></i> 2 frutas</li>
+                                    <li><i class="fas fa-dot-circle"></i> 1/2 colher sopa de hortelã</li>
+                                    <li><i class="fas fa-dot-circle"></i> xilitol ou Stevia (opcional).</li>
+                                    <li><i class="fas fa-dot-circle"></i> Colageno (1 medida) opcional</li>
+                                    <li><i class="fas fa-dot-circle"></i> Whey isolado (1 scoop)</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-cookie-bite"></i> COLAÇÃO (10:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Shake de frutas (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Tamara: 5 unidades</li>
+                                    <li><i class="fas fa-dot-circle"></i> Ou</li>
+                                    <li><i class="fas fa-dot-circle"></i> Mix de Castanhas: 5 unidades</li>
+                                    <li><i class="fas fa-dot-circle"></i> Cretina (1 scoop)</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-utensils"></i> ALMOÇO (12:30h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Refeição livre (seguindo orientações)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Salada Crua - á vontade</li>
+                                    <li><i class="fas fa-dot-circle"></i> Peixe ou sobrecoxa assada com legumes 120g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Arroz Integral ou macarrão sem glúten - 80g</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-apple-alt"></i> LANCHE (16:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Iogurte de chia (ver receita)</li>
+                                    <li><i class="fas fa-dot-circle"></i> Biscoito de arroz grande: 2 unidades</li>
+                                    <li><i class="fas fa-dot-circle"></i> Pasta de amendoim ou geléia 0 açúcar</li>
+                                    <li><i class="fas fa-dot-circle"></i> Chá Claros ou suco natural ou leite vegetal 0 lactose:200ml</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-moon"></i> JANTA (19:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Sopa nutritiva: 300ml</li>
+                                    <li><i class="fas fa-dot-circle"></i> Purê de batata inglesa 80g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Legumes Assados</li>
+                                    <li><i class="fas fa-dot-circle"></i> Filé de frango ou peixe grelhado - 100g</li>
+                                    <li><i class="fas fa-dot-circle"></i> Suco da Fruta: 200ml</li>
                                 </ul>
                                 <div class="meal-time"><i class="fas fa-bed"></i> CEIA (22:00h)</div>
                                 <ul>
-                                    <li><i class="fas fa-dot-circle"></i> Chás claros: 200ml</li>
+                                    <li><i class="fas fa-dot-circle"></i> Amêndoas: 8 unidades</li>
+                                    <li><i class="fas fa-dot-circle"></i> Chás claros 200ml</li>
                                 </ul>
                             </div>
                         </div>
@@ -1582,6 +1718,7 @@
                     <option value="recipe-caldo-feijao">CALDO DE FEIJÃO</option>
                     <option value="recipe-chips-batata-doce">CHIPS DE BATATA DOCE</option>
                     <option value="recipe-creme-banana">CREME DE BANANA</option>
+                    <option value="recipe-creme-mamao">CREME DE MAMÃO</option>
                     <option value="recipe-crepioca">CREPIOCA</option>
                     <option value="recipe-gelo-couve">GELO DE COUVE</option>
                     <option value="recipe-guacamole">GUACAMOLE</option>
@@ -1599,9 +1736,12 @@
                     <option value="recipe-salpicao-funcional">SALPICÃO FUNCIONAL</option>
                     <option value="recipe-shake-acelerador">SHAKE ACELERADOR</option>
                     <option value="recipe-shake-acai">SHAKE DE AÇAÍ</option>
+                    <option value="recipe-shake-abacate-cacau">SHAKE DE ABACATE E CACAU</option>
                     <option value="recipe-shake-ameixa">SHAKE DE AMEIXA</option>
                     <option value="recipe-shake-canela">SHAKE DE CANELA</option>
+                    <option value="recipe-shake-coco-hortela">SHAKE DE COCO COM HORTELÃ</option>
                     <option value="recipe-shake-frutas">SHAKE DE FRUTAS</option>
+                    <option value="recipe-shake-neutro-fibras">SHAKE NEUTRO + FIBRAS</option>
                     <option value="recipe-sopa-legumes">SOPA DE LEGUMES COM FRANGO</option>
                     <option value="recipe-sopa-quinoa">SOPA DE QUINOA COM FRANGO</option>
                     <option value="recipe-suco-detox">SUCO DETOX</option>
@@ -1810,22 +1950,22 @@
                 <!-- SHAKE DE AÇAÍ -->
                 <div id="recipe-shake-acai" class="recipe-card" style="display: none;">
                     <h4><i class="fas fa-blender"></i> SHAKE DE AÇAÍ</h4>
-                    <p><b>Ingredientes:</b> 100g de polpa de açaí, 1 banana, 200ml de leite vegetal, 1 colher de sopa de granola sem açúcar</p>
-                    <p><b>Modo de preparo:</b> Bata todos os ingredientes no liquidificador. Sirva imediatamente com granola por cima.</p>
+                    <p><b>Ingredientes:</b> 50g de polpa de açaí, 200ml de água de coco, 1 pedaço pequeno de gengibre, 1 banana, 2 morangos, 3 castanhas (Pará, caju), Xilitol ou stevia (opcional), 1 Scoop de whey isolado.</p>
+                    <p><b>Modo de preparo:</b> Bata tudo no liquidificador por 30s até ficar homogêneo. depois adicione o colágeno e o xilitol.</p>
                 </div>
 
                 <!-- SHAKE DE CANELA -->
                 <div id="recipe-shake-canela" class="recipe-card" style="display: none;">
                     <h4><i class="fas fa-blender"></i> SHAKE DE CANELA</h4>
-                    <p><b>Ingredientes:</b> 1 banana, 200ml de leite de amêndoas, 1 colher de chá de canela em pó, 1 colher de sopa de aveia</p>
-                    <p><b>Modo de preparo:</b> Bata todos os ingredientes no liquidificador até ficar cremoso. Sirva gelado polvilhado com canela.</p>
+                    <p><b>Ingredientes:</b> 1 scoop de whey, 1 banana, Canela e cacau em pó 100%, Aveia: 1 colher sopa, Colageno (1Medida) opcional.</p>
+                    <p><b>Modo de preparo:</b> Bata todos os ingredientes no liquidificador por 30s até ficar homogêneo.</p>
                 </div>
 
                 <!-- SHAKE DE AMEIXA -->
                 <div id="recipe-shake-ameixa" class="recipe-card" style="display: none;">
                     <h4><i class="fas fa-blender"></i> SHAKE DE AMEIXA</h4>
-                    <p><b>Ingredientes:</b> 3 ameixas secas hidratadas, 1 banana, 200ml de leite vegetal, 1 colher de sopa de aveia</p>
-                    <p><b>Modo de preparo:</b> Deixe as ameixas de molho por 2 horas. Bata todos os ingredientes no liquidificador até obter consistência cremosa.</p>
+                    <p><b>Ingredientes:</b> 2 ameixas secas, 1 colher de sopa de linhaça (15g), 6 morangos, 200ml iogurte ou leite zero lactose, gengibre (1 pitada), Cacau em pó 100% (1 colher café), Colageno (1medida) opcional.</p>
+                    <p><b>Modo de preparo:</b> Bata tudo no liquidificador por 30s até ficar homogêneo. depois adicione o colágeno e o xilitol.</p>
                 </div>
 
                 <!-- SHAKE DE FRUTAS -->
@@ -1848,6 +1988,35 @@
                     <p><b>Ingredientes:</b> 1 folha de couve, 1/2 pepino, 1 maçã verde, suco de 1 limão, 200ml de água</p>
                     <p><b>Modo de preparo:</b> Bata todos os ingredientes no liquidificador. Coe se preferir e sirva gelado imediatamente.</p>
                 </div>
+
+                <!-- SHAKE NEUTRO + FIBRAS -->
+                <div id="recipe-shake-neutro-fibras" class="recipe-card" style="display: none;">
+                    <h4><i class="fas fa-blender"></i> SHAKE NEUTRO + FIBRAS</h4>
+                    <p><b>Ingredientes:</b> 1 scoop de whey isolado, 250 ml de leite vegetal, 1 colher (sopa) de psyllium, Raspa a casca de limão (opcinal), Gelo.</p>
+                    <p><b>Modo de preparo:</b> Bata primeiro o Whey com o leite vegetal. Acrescente o psyllium e bata por mais 5s. Deixar repousar 1 min (para o psyllium hidratar) e mexa antes de beber.</p>
+                </div>
+
+                <!-- CREME DE MAMÃO -->
+                <div id="recipe-creme-mamao" class="recipe-card" style="display: none;">
+                    <h4><i class="fas fa-ice-cream"></i> CREME DE MAMÃO</h4>
+                    <p><b>Ingredientes:</b> 200ml Mamão/leite ou creme de leite 0 lactose e xilitol.</p>
+                    <p><b>Modo de preparo:</b> Bata todos os ingredientes no liquidificador.</p>
+                </div>
+
+                <!-- SHAKE DE COCO COM HORTELÃ -->
+                <div id="recipe-shake-coco-hortela" class="recipe-card" style="display: none;">
+                    <h4><i class="fas fa-blender"></i> SHAKE DE COCO COM HORTELÃ</h4>
+                    <p><b>Ingredientes:</b> 1 scoop de whey sabor coco (ou sem sabor + 1 c. sopa de coco em pó 0 açúcar), 250ml de água de coco, 5-6 folhas de hotelã fresca, Gelo.</p>
+                    <p><b>Modo de preparo:</b> Bata rapidamente a hortelã com parte di líquido para liberar o aroma. Junte o resto dos ingredientes e bata até ficar uniforme.</p>
+                </div>
+
+                <!-- SHAKE DE ABACATE E CACAU -->
+                <div id="recipe-shake-abacate-cacau" class="recipe-card" style="display: none;">
+                    <h4><i class="fas fa-blender"></i> SHAKE DE ABACATE E CACAU</h4>
+                    <p><b>Ingredientes:</b> 1 scoop de whey isolado, 1⁄2 abacate pequeno (maduro), 200ml de água de coco sem açúcar, 1 colher de chá de cacau 100% puro, Gelo.</p>
+                    <p><b>Modo de preparo:</b> Bata o abacate e o whey com a água de coco até ficar cremoso. Adicione o cacau e gelo, bata só para homogeneizar.</p>
+                </div>
+
             </div>
         </div>
 
